@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/ezshen/static/js/main.9f335cb2.chunk.js",
+    "main.js.map": "/ezshen/static/js/main.9f335cb2.chunk.js.map",
+    "runtime~main.js": "/ezshen/static/js/runtime~main.0a60d8d2.js",
+    "runtime~main.js.map": "/ezshen/static/js/runtime~main.0a60d8d2.js.map",
+    "static/css/2.ad9eb4b5.chunk.css": "/ezshen/static/css/2.ad9eb4b5.chunk.css",
+    "static/js/2.a529c34e.chunk.js": "/ezshen/static/js/2.a529c34e.chunk.js",
+    "static/js/2.a529c34e.chunk.js.map": "/ezshen/static/js/2.a529c34e.chunk.js.map",
+    "index.html": "/ezshen/index.html",
+    "precache-manifest.587423180ab045d16e1b4b1eccd476c7.js": "/ezshen/precache-manifest.587423180ab045d16e1b4b1eccd476c7.js",
+    "service-worker.js": "/ezshen/service-worker.js",
+    "static/css/2.ad9eb4b5.chunk.css.map": "/ezshen/static/css/2.ad9eb4b5.chunk.css.map"
+  }
+}
