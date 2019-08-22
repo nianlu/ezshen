@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import M from 'materialize-css'
 import 'materialize-css/dist/css/materialize.min.css'
@@ -7,10 +7,13 @@ import Nav from './Nav'
 import Body from './Body'
 
 function App() {
+
+  const [active, setActive] = useState('home')
+
   return (
     <div>
-      <Nav />
-      <Body />
+      <Nav onActive={setActive} />
+      <Body active={active} />
     </div>
   );
 }
