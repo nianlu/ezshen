@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9fd397feba03cafdae8188f1cc6b55c8",
+    "revision": "e3038d696266d847de8c46a5f430bf7b",
     "url": "/ezshen/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ezshen/static/js/2.b8a69d40.chunk.js"
   },
   {
-    "revision": "761944706f92ca432115",
-    "url": "/ezshen/static/js/main.9f44c2c1.chunk.js"
+    "revision": "ffcaf687747d399637b7",
+    "url": "/ezshen/static/js/main.6a7a476b.chunk.js"
   },
   {
     "revision": "43bfd6586a428083411d",

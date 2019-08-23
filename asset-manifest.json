@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/ezshen/static/js/main.9f44c2c1.chunk.js",
-    "main.js.map": "/ezshen/static/js/main.9f44c2c1.chunk.js.map",
+    "main.js": "/ezshen/static/js/main.6a7a476b.chunk.js",
+    "main.js.map": "/ezshen/static/js/main.6a7a476b.chunk.js.map",
     "runtime~main.js": "/ezshen/static/js/runtime~main.0a60d8d2.js",
     "runtime~main.js.map": "/ezshen/static/js/runtime~main.0a60d8d2.js.map",
     "static/css/2.ad9eb4b5.chunk.css": "/ezshen/static/css/2.ad9eb4b5.chunk.css",
     "static/js/2.b8a69d40.chunk.js": "/ezshen/static/js/2.b8a69d40.chunk.js",
     "static/js/2.b8a69d40.chunk.js.map": "/ezshen/static/js/2.b8a69d40.chunk.js.map",
     "index.html": "/ezshen/index.html",
-    "precache-manifest.7603a17da1ea9f268436ed46bb3d057c.js": "/ezshen/precache-manifest.7603a17da1ea9f268436ed46bb3d057c.js",
+    "precache-manifest.f5178310842540e7e75e03b6c2998ad3.js": "/ezshen/precache-manifest.f5178310842540e7e75e03b6c2998ad3.js",
     "service-worker.js": "/ezshen/service-worker.js",
     "static/css/2.ad9eb4b5.chunk.css.map": "/ezshen/static/css/2.ad9eb4b5.chunk.css.map"
   }
