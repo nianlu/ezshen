@@ -2,7 +2,10 @@ chmod 600 ezshen.pem
 
 ssh -i ezshen.pem ubuntu@www.ezshen.com
 
-scp file.txt remote_username@10.10.0.2:/remote/directory
+scp -i "ezshen.pem" -r ./build ubuntu@www.ezshen.com:~/
+
+sudo su -
+cp -r /home/ubuntu/build/* /var/www/html/
 
 DB
 ezshen.c4yfq730wtde.us-east-1.rds.amazonaws.com

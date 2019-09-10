@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div>
-      <Nav onActive={setActive} />
+      <Nav active={active} onActive={setActive} />
       <Body active={active} />
     </div>
   );

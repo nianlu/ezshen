@@ -7,10 +7,10 @@ function Nav(props) {
       <div className="nav-wrapper container">
         <a href="#" className="brand-logo" style={{paddingLeft: '1rem'}} onClick={() => props.onActive('home')}>易申</a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><a href="#">查询</a></li>
+          <li className={props.active === 'schools' && 'active'}><a href="#" onClick={() => props.onActive('schools')}>查询</a></li>
           <li><a href="#">计划</a></li>
           <li><a href="#">申请</a></li>
-          <li><a href="#" onClick={() => props.onActive('login')}>登录</a></li>
+          <li className={props.active === 'login' && 'active'}><a onClick={() => props.onActive('login')}>登录</a></li>
         </ul>
       </div>
     </nav>
