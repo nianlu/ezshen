@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { login } from '../../api/login'
+import { loginApi } from '../../api/loginApi'
 
 function Login() {
 
@@ -25,7 +25,7 @@ function Login() {
           </div>
           <div className="row">
             <div className="col offset-s5">
-              <button type="submit" className="btn waves-effect waves-light" onClick={() => login(email, password)}>
+              <button type="submit" className="btn waves-effect waves-light" onClick={() => loginApi(email, password)}>
                 登录
               </button>
             </div>
