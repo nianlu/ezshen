@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from '../feature/home/Home'
 import Login from '../feature/login/Login'
+import Register from '../feature/login/Register'
 import Schools from '../feature/schools/Schools'
 
 function Body(props) {
@@ -14,6 +15,9 @@ function Body(props) {
       }
       {props.active === 'login' && 
         <Login />
+      }
+      {props.active === 'register' && 
+        <Register />
       }
       
     </div>

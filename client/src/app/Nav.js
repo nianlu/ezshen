@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { tsPropertySignature } from '@babel/types';
 
@@ -11,6 +12,7 @@ function Nav(props) {
           <li><a href="#">计划</a></li>
           <li><a href="#">申请</a></li>
           <li className={props.active === 'login' && 'active'}><a onClick={() => props.onActive('login')}>登录</a></li>
+          <li className={props.active === 'register' && 'active'}><a onClick={() => props.onActive('register')}>注册</a></li>
         </ul>
       </div>
     </nav>

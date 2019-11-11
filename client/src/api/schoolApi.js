@@ -1,13 +1,12 @@
 import Axios from "axios";
 
-export const login = (email, password) => 
-  Axios.get('/api/login', {auth: {
-      username: email,
-      password: password,
-    }})
-    .then(() =>
-      console.log('login')
+export const login = (email, password, callback, catchback) => 
+  Axios.get('/schools')
+    .then(response =>
+      // console.log('login')
+      callback(response)
     )
-    .catch(() =>
-      console.log('login failed')
+    .catch(error =>
+      // console.log('login failed')
+      catchback(error)
     )

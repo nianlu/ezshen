@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import { loginApi } from '../../api/loginApi'
+import { registerApi } from '../../api/loginApi'
 
-function Login() {
+function Register() {
 
-  const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [status, setStatus] = useState('')
-
-  const loginSuccess = (response) => {setStatus('');window.sessionStorage.setItem('token', response.data.token)}
-  const loginFailed = (error) => setStatus('登录失败')
 
   return (
     <div>
-      <h3 className="font-weight-bold center-align" style={{margin: "4rem 0"}}>用户登录</h3>
+      <h3 className="font-weight-bold center-align" style={{margin: "4rem 0"}}>用户注册</h3>
       <div className="row">
         <div className="col s4 offset-s4">
+          <div className="row">
+            <div className="input-field" style={{margin: 0}}>
+              <input id="username" type="text" className="validate" onChange={(e) => setUsername(e.target.value)} />
+              <label for="username">用户名</label>
+            </div>
+          </div>
           <div className="row">
             <div className="input-field" style={{margin: 0}}>
               <input id="email" type="email" className="validate" onChange={(e) => setEmail(e.target.value)} />
@@ -29,11 +31,9 @@ function Login() {
             </div>
           </div>
           <div className="row">
-            <span>{status}</span>
             <div className="col offset-s5">
-              {/* <button type="submit" className="btn waves-effect waves-light" onClick={() => loginApi(email, password)}> */}
-              <button type="submit" className="btn waves-effect waves-light" onClick={() => loginApi(username, password, loginSuccess, loginFailed)}>
-                登录
+              <button type="submit" className="btn waves-effect waves-light" onClick={() => registerApi(username, email, password)}>
+                注册
               </button>
             </div>
           </div>
@@ -44,4 +44,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
