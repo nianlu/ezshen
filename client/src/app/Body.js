@@ -3,6 +3,7 @@ import Home from '../feature/home/Home'
 import Login from '../feature/login/Login'
 import Register from '../feature/login/Register'
 import Schools from '../feature/schools/Schools'
+import Profile from '../feature/profile/Profile';
 
 function Body(props) {
   return (
@@ -12,6 +13,9 @@ function Body(props) {
       }
       {props.active === 'schools' && 
         <Schools />
+      }
+      {props.active === 'profile' && 
+        <Profile />
       }
       {props.active === 'login' && 
         <Login />
