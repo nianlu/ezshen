@@ -11,19 +11,21 @@ function Profile() {
         <div className='col s2'>
           <div className='collection'>
             <a className='collection-item' onClick={_ => setActive(1)}>基本信息</a>
-            <a className='collection-item' onClick={_ => setActive(2)}>成绩信息</a>
-            <a className='collection-item' onClick={_ => setActive(3)}>其他信息</a>
+            <a className='collection-item' onClick={_ => setActive(2)}>家庭信息</a>
+            <a className='collection-item' onClick={_ => setActive(3)}>成绩信息</a>
+            <a className='collection-item' onClick={_ => setActive(4)}>其他信息</a>
           </div>
         </div>
         <div className='col s10' style={{paddingTop: '1rem'}}>
           {active === 1?
             <div>基本信息</div>
             : active === 2?
+            <div>家庭信息</div>
+            : active === 3?
             <div>成绩信息</div>
             :
             <div>其他信息</div>
           }
-
         </div>
       </div>
     </div>

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { loginApi } from '../../api/loginApi'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+// import { loginApi } from '../../api/accountApi'
+// import { login } from './accountSlice'
 
-function Login() {
+function Login(props) {
+
+  const { onSubmit } = props
 
   const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [status, setStatus] = useState('')
-
-  const loginSuccess = (response) => {setStatus('');window.sessionStorage.setItem('token', response.data.token)}
-  const loginFailed = (error) => setStatus('登录失败')
 
   return (
     <div>
@@ -32,7 +32,7 @@ function Login() {
             <span>{status}</span>
             <div className="col offset-s5">
               {/* <button type="submit" className="btn waves-effect waves-light" onClick={() => loginApi(email, password)}> */}
-              <button type="submit" className="btn waves-effect waves-light" onClick={() => loginApi(username, password, loginSuccess, loginFailed)}>
+              <button type="submit" className="btn waves-effect waves-light" onClick={() => {console.log('logging in');onSubmit(email, password)}}>
                 登录
               </button>
             </div>

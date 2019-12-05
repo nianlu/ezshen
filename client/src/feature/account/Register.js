@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { registerApi } from '../../api/loginApi'
+import { register } from '../../api/accountApi'
 
 function Register() {
 
@@ -32,7 +32,7 @@ function Register() {
           </div>
           <div className="row">
             <div className="col offset-s5">
-              <button type="submit" className="btn waves-effect waves-light" onClick={() => registerApi(username, email, password)}>
+              <button type="submit" className="btn waves-effect waves-light" onClick={() => register(username, email, password)}>
                 注册
               </button>
             </div>
@@ -41,7 +41,7 @@ function Register() {
       </div>
       
     </div>
-  );
+  )
 }
 
 export default Register;
