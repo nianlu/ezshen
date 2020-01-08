@@ -3,20 +3,23 @@ import { connect } from 'react-redux'
 
 import Register from './Register'
 import Login from './Login'
+import Forgot from './Forgot'
 
-import { login, register } from './accountSlice'
+import { login, register, forgot } from './accountSlice'
 
-const mapDispatch = { login, register }
+const mapDispatch = { login, register, forgot }
 
 function Account(props) {
 
-  const { forNew, login, register, account } = props
+  const { forNew, forLost, login, register, forgot, account } = props
   console.log(forNew)
 
   return (
     <div>
       {forNew?
         <Register onSubmit={register} />
+        : forLost?
+        <Forgot onSubmit={forgot} />
         :
         <Login onSubmit={login} />
       }
