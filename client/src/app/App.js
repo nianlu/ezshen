@@ -13,6 +13,9 @@ import Account from '../feature/account/Account'
 import Schools from '../feature/schools/Schools'
 import Profile from '../feature/profile/Profile';
 import { logout } from '../feature/account/accountSlice';
+import Login from 'feature/account/Login';
+import Register from 'feature/account/Register';
+import Forgot from 'feature/account/Forgot';
 
 const mapDispatch = { logout }
 
@@ -33,6 +36,7 @@ function App(props) {
             {login?
               <>
               <li><Link to="/profile">个人资料</Link></li>
+              <li><Link to="/account">账户</Link></li>
               <li><a onClick={_ => logout()}>登出</a></li>
               </>
               :
@@ -66,6 +70,9 @@ function App(props) {
             <Route path="/profile">
               <Profile />
             </Route>
+            <Route path="/account">
+              <Account />
+            </Route>
             <Route path="/login">
               <Redirect to='/' />
             </Route>
@@ -78,14 +85,17 @@ function App(props) {
             <Route path="/profile">
               <Redirect to='/' />
             </Route>
+            <Route path="/account">
+              <Redirect to='/' />
+            </Route>
             <Route path="/login">
-                <Account />
+              <Login />
             </Route>
             <Route path="/register">
-                <Account forNew={true} />
+              <Register />
             </Route>
             <Route path="/forgot">
-                <Account forLost={true} />
+              <Forgot />
             </Route>
             </>
           }

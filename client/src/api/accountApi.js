@@ -19,17 +19,21 @@ axios.interceptors.request.use(
   error => Promise.reject(error)
 )
 
-export const login = (email, password, callback, catchback) => 
-  callback('eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciJ9.wIh6IORjUMCIeJAyXohVfpt4VqSlR1uyIrMGmaxR5u4')
-
-
 // export const login = (email, password, callback, catchback) => 
-export const login_real = (email, password, callback, catchback) => 
+//   callback('eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciJ9.wIh6IORjUMCIeJAyXohVfpt4VqSlR1uyIrMGmaxR5u4')
+  // (email && email === 'test@ezshen.com' && password && password === 'pw')?
+  //   callback('eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciJ9.wIh6IORjUMCIeJAyXohVfpt4VqSlR1uyIrMGmaxR5u4')
+  //   :
+  //   catchback('failed login')
+
+
+export const login = (email, password, callback, catchback) => 
+// export const login_real = (email, password, callback, catchback) => 
   axios.get('/authentication', {auth: {
-      email: email,
+      username: email,
       password: password,
     }})
-    .then(response => callback(response.data))
+    .then(response => callback(response.data.token))
     .catch(error => catchback(error))
 
 // export const register = (email, password) => 
@@ -38,20 +42,23 @@ export const register = (email, password, callback, catchback) =>
     email: email,
     password: password
   })
-    .then(() =>
-      console.log('register')
-    )
-    .catch(() =>
-      console.log('register failed')
-    )
+  .then(response => callback(response))
+  .catch(error => catchback(error))
+  // .then(() => console.log('registered'))
+  // .catch(error => console.log('register failed', error))
 
 export const forgot = (email, callback, catchback) => 
-  axios.post('/lost', {
+  axios.put('/users/resetbyemail', {
     email: email,
   })
-    .then(() =>
-      console.log('forgot')
-    )
-    .catch(() =>
-      console.log('forgot failed')
-    )
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
+
+export const resetPassword = (email, password, newPassword, callback, catchback) => 
+  axios.put('/users/resetbypassword', {
+    email: email,
+    password: password,
+    newpassword: newPassword
+  })
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))

@@ -29,9 +29,7 @@ function Profile() {
           {active === 1?
             <PersonalInformation />
           : active === 2?
-            <div>联系方式
-              <ContactDetails />
-            </div>
+            <ContactDetails />
           : active === 3?
             <div>家庭</div>
           : active === 4?

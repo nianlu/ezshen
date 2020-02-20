@@ -6,7 +6,6 @@ function Home() {
       
       <div className="divider"></div>
       <section>
-        -----------banner--------------
       </section>
       <div className="divider"></div>
       <div className="row">

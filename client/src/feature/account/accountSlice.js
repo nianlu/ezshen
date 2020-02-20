@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
-import * as api from '../../api/accountApi'
+import * as api from 'api/accountApi'
 
 import jwtDecode from 'jwt-decode'
 
 const token = sessionStorage.getItem('token')
 const initial = {
   login: token && token.length > 0,
-  username: token && jwtDecode(token).user,
+  email: token && jwtDecode(token).email,
+  message: ''
 }
 
 const accountSlice = createSlice({
@@ -19,6 +20,8 @@ const accountSlice = createSlice({
     },
     loginSuccess(state, action) {
       state.login = true
+      state.email = action.payload.email
+      state.message = ''
     },
     loginFailure(state, action) {
       console.log('accountreducer loginfail', action.payload)
@@ -27,12 +30,16 @@ const accountSlice = createSlice({
     logout(state, action) {
       sessionStorage.removeItem('token')
       state.login = false
+    },
+    setMessage(state, action) {
+      console.log('accountreducer setmsg', action.payload)
+      state.message = action.payload
     }
   }
 })
 
 export const {
-  loginStart, loginSuccess, loginFailure, logout
+  loginStart, loginSuccess, loginFailure, logout, setMessage
 } = accountSlice.actions
 
 export default accountSlice.reducer
@@ -47,19 +54,17 @@ export const login = (email, password) => dispatch => {
       if (data && data.length > 0) {
         // localStorage.setItem('token', data)
         sessionStorage.setItem('token', data)
-        // const user = jwtDecode(data).user
-        const user = 'test'
-        if (user && user.length > 0) {
-          dispatch(loginSuccess({username: user}))
+        const email = jwtDecode(data).email
+        if (email && email.length > 0) {
+          dispatch(loginSuccess({email: email}))
         } else {
-          dispatch(loginFailure())
+          dispatch(setMessage('login failed'))
         }
-        // dispatch(loginSuccess({username: 'testuser'}))
       } else {
-        dispatch(loginFailure())
+        dispatch(setMessage('login failed'))
       }
     },
-    error => dispatch(loginFailure(error.message))
+    error => dispatch(setMessage(error.message))
   )
 }
 
@@ -69,8 +74,9 @@ export const register = (email, password) => dispatch => {
   api.register(
     email, 
     password, 
-    response => dispatch(loginSuccess(response)),
-    error => dispatch(loginFailure(error.message))
+    // response => dispatch(loginSuccess(response)),
+    response => dispatch(login(email, password)),
+    error => dispatch(setMessage(error.message))
   )
 }
 
@@ -79,7 +85,20 @@ export const forgot = (email) => dispatch => {
   dispatch(loginStart)
   api.forgot(
     email, 
-    response => dispatch(loginSuccess(response)),
-    error => dispatch(loginFailure(error.message))
+    response => dispatch(setMessage('email sent')),
+    error => dispatch(setMessage('email sending failed'))
+  )
+}
+
+export const resetPassword = (email, password, newPassword) => dispatch => {
+  console.log('accountreducer resetPassword')
+  dispatch(loginStart)
+  api.resetPassword(
+    email, 
+    password,
+    newPassword,
+    response => dispatch(login(email, newPassword)),
+    // error => console.log('reset password failed')
+    error => dispatch(setMessage('reset password failed'))
   )
 }

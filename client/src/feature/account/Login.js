@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom'
 // import { loginApi } from '../../api/accountApi'
 // import { login } from './accountSlice'
 
+import { login } from './accountSlice'
+
+const mapDispatch = { login }
+
 function Login(props) {
 
-  const { onSubmit } = props
+  const { login, message } = props
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [status, setStatus] = useState('')
 
   return (
     <div>
@@ -30,8 +33,8 @@ function Login(props) {
             </div>
           </div>
           <div className="row center-align">
-            <span>{status}</span>
-            <button type="submit" className="btn waves-effect waves-light" onClick={e => {e.preventDefault();onSubmit(email, password)}} style={{minWidth: '5rem'}}>
+            <div style={{marginBottom: '1rem'}}>{message}</div>
+            <button type="submit" className="btn waves-effect waves-light" onClick={e => {e.preventDefault();login(email, password)}} style={{minWidth: '5rem'}}>
               登录
             </button>
           </div>
@@ -49,4 +52,6 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default connect(state => ({
+  message: state.account.message
+}), mapDispatch)(Login)
