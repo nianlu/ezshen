@@ -14,7 +14,7 @@ function Account(props) {
     <div>
       <Info onSubmit={resetPassword} email={account.email} message={account.message} />
     </div>
-  );
+  )
 }
 
 export default connect(state => ({

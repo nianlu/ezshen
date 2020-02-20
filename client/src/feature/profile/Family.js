@@ -9,31 +9,31 @@ function ContactDetails() {
       <div className="row">
         <div className="input-field col s6">
           <input id="Permanent home address" type="text" className="validate" />
-          <label for="Permanent home address">家庭住址 Permanent home address</label>
+          <label htmlFor="Permanent home address">家庭住址 Permanent home address</label>
         </div>
         <div className="input-field col s6">
           <input id="Mailing address" type="text" className="validate" />
-          <label for="Mailing address">邮寄地址 Mailing address</label>
+          <label htmlFor="Mailing address">邮寄地址 Mailing address</label>
         </div>
         <div className="input-field col s6">
           <input id="E-mail address" type="text" className="validate" />
-          <label for="E-mail address">电子邮箱 E-mail address</label>
+          <label htmlFor="E-mail address">电子邮箱 E-mail address</label>
         </div>
         <div className="input-field col s6">
           <input id="Preferred phone type" type="text" className="validate" />
-          <label for="Preferred phone type">联系电话类型 Preferred phone type</label>
+          <label htmlFor="Preferred phone type">联系电话类型 Preferred phone type</label>
         </div>
         <div className="input-field col s6">
           <input id="Preferred phone number" type="text" className="validate" />
-          <label for="Preferred phone number">联系号码 Preferred phone number</label>
+          <label htmlFor="Preferred phone number">联系号码 Preferred phone number</label>
         </div>
         <div className="input-field col s6">
           <input id="Alternative preferred phone type" type="text" className="validate" />
-          <label for="Alternative preferred phone type">备选联系电话类型 Alternative preferred phone type</label>
+          <label htmlFor="Alternative preferred phone type">备选联系电话类型 Alternative preferred phone type</label>
         </div>
         <div className="input-field col s6">
           <input id="Alternative preferred phone number" type="text" className="validate" />
-          <label for="Alternative preferred phone number">备选联系号码 Alternative preferred phone number</label>
+          <label htmlFor="Alternative preferred phone number">备选联系号码 Alternative preferred phone number</label>
         </div>
       </div>
     </div>

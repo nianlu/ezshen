@@ -26,9 +26,9 @@ function App(props) {
     <Router>
       <nav className=" teal lighten-3">
         <div className="nav-wrapper container">
-          <a className="brand-logo">
+          <div className="brand-logo">
             <Link to="/">易申</Link>
-          </a>
+          </div>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to="/schools">查询</Link></li>
             <li><Link to="/">计划</Link></li>
