@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
+import { connect } from 'react-redux'
 
-function PersonalInformation() {
+const mapDispatch = {}
+
+function PersonalInformation(props) {
+
+  const { personalInformation, onUpdate, onSave } = props
+  // console.log('pi', personalInformation)
 
   return (
     <div className='col s12'>
@@ -9,32 +16,38 @@ function PersonalInformation() {
       </div>
       <div className="row">
         <div className="input-field col s6">
-          <input id="first_name" type="text" className="validate" />
-          <label htmlFor="first_name">名 First Name</label>
+          <input value={personalInformation.first_name || ''} onChange={e => onUpdate({first_name: e.target.value})} id="first_name" type="text" className="validate" />
+          <label className={personalInformation.first_name? 'active' : ''} htmlFor="first_name">名 First Name</label>
         </div>
         <div className="input-field col s6">
-          <input id="last_name" type="text" className="validate" />
-          <label htmlFor="last_name">姓 Last Name</label>
+          <input value={personalInformation.last_name || ''} onChange={e => onUpdate({last_name: e.target.value})} id="last_name" type="text" className="validate" />
+          <label className={personalInformation.last_name? 'active' : ''} htmlFor="last_name">姓 Last Name</label>
         </div>
         <div className="input-field col s6">
-          <input id="Preferred name (nickname)" type="text" />
-          <label htmlFor="Preferred name (nickname)">昵称 Preferred name (nickname)</label>
+          <input value={personalInformation.nick_name || ''} onChange={e => onUpdate({nick_name: e.target.value})} id="nick_name" type="text" />
+          <label className={personalInformation.nick_name? 'active' : ''} htmlFor="nick_name">昵称 Preferred name (nickname)</label>
         </div>
         <div className="input-field col s6">
-          <input id="Other name" type="text" />
-          <label htmlFor="Other name">曾用名 Other name</label>
+          <input value={personalInformation.other_name || ''} onChange={e => onUpdate({other_name: e.target.value})} id="other_name" type="text" />
+          <label className={personalInformation.other_name? 'active' : ''} htmlFor="other_name">曾用名 Other name</label>
         </div>
         <div className="input-field col s6">
-          <input id="Sex" type="text" />
-          <label htmlFor="Sex">性别 Sex</label>
+          <input value={personalInformation.sex || ''} onChange={e => onUpdate({sex: e.target.value})} id="sex" type="text" />
+          <label className={personalInformation.sex? 'active' : ''} htmlFor="sex">性别 Sex</label>
         </div>
         <div className="input-field col s6">
-          <input id="Date of birth" type="text" />
-          <label htmlFor="Date of birth">生日 Date of birth</label>
+          <input value={personalInformation.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
+          <label className={personalInformation.date_of_birth? 'active' : ''} htmlFor="date_of_birth">生日 Date of birth</label>
         </div>
+      </div>
+      <div>
+        {/* <a class="waves-effect waves-light btn" onClick={_ => fetchPersonalInformation()}>load</a> */}
+        <a class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</a>
       </div>
     </div>
   );
 }
 
-export default PersonalInformation;
+export default connect(state => ({
+  personalInformation: state.profile.personalInformation
+}), mapDispatch)(PersonalInformation)

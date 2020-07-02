@@ -17,10 +17,12 @@ import Login from 'feature/account/Login';
 import Register from 'feature/account/Register';
 import Forgot from 'feature/account/Forgot';
 
-const mapDispatch = { logout }
+import { fetchPersonalInformation } from '../feature/profile/profileSlice';
+
+const mapDispatch = { logout, fetchPersonalInformation }
 
 function App(props) {
-  const { login, logout } = props
+  const { login, logout, fetchPersonalInformation } = props
 
   return (
     <Router>
@@ -35,7 +37,7 @@ function App(props) {
             <li><Link to="/">申请</Link></li>
             {login?
               <>
-              <li><Link to="/profile">个人资料</Link></li>
+              <li><Link to="/profile" onClick={_ => fetchPersonalInformation()}>申请信息</Link></li>
               <li><Link to="/account">账户</Link></li>
               <li><a onClick={_ => logout()}>登出</a></li>
               </>

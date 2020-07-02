@@ -20,11 +20,11 @@ axios.interceptors.request.use(
 )
 
 // export const login = (email, password, callback, catchback) => 
-//   callback('eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciJ9.wIh6IORjUMCIeJAyXohVfpt4VqSlR1uyIrMGmaxR5u4')
-  // (email && email === 'test@ezshen.com' && password && password === 'pw')?
-  //   callback('eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciJ9.wIh6IORjUMCIeJAyXohVfpt4VqSlR1uyIrMGmaxR5u4')
-  //   :
-  //   catchback('failed login')
+//   // callback('eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciJ9.wIh6IORjUMCIeJAyXohVfpt4VqSlR1uyIrMGmaxR5u4')
+//   (email && email === 'test@ezshen.com' && password && password === 'pw')?
+//     callback('eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciJ9.wIh6IORjUMCIeJAyXohVfpt4VqSlR1uyIrMGmaxR5u4')
+//     :
+//     catchback('failed login')
 
 
 export const login = (email, password, callback, catchback) => 
