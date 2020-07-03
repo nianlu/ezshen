@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { connect } from 'react-redux'
-
-const mapDispatch = {}
 
 function PersonalInformation(props) {
 
@@ -41,8 +38,7 @@ function PersonalInformation(props) {
         </div>
       </div>
       <div>
-        {/* <a class="waves-effect waves-light btn" onClick={_ => fetchPersonalInformation()}>load</a> */}
-        <a class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</a>
+        <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>
       </div>
     </div>
   );
@@ -50,4 +46,4 @@ function PersonalInformation(props) {
 
 export default connect(state => ({
   personalInformation: state.profile.personalInformation
-}), mapDispatch)(PersonalInformation)
+}), {})(PersonalInformation)

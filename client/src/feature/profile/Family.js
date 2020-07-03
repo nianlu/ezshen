@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
 
-function ContactDetails() {
+function Family(props) {
+  const { family, onUpdate, onSave } = props
   return (
     <div className='col s12'>
       <div className="row">
@@ -48,10 +50,18 @@ function ContactDetails() {
           <input id="Is your father living" type="text" className="validate" />
           <label htmlFor="Is your father living">父亲是否健在 Is your father living</label>
         </div>
-
+        <div className="input-field col s6">
+          <input value={family.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
+          <label className={family.date_of_birth? 'active' : ''} htmlFor="date_of_birth">生日 Date of birth</label>
+        </div>
+      </div>
+      <div>
+        <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>
       </div>
     </div>
   );
 }
 
-export default ContactDetails;
+export default connect(state => ({
+  family: state.profile.family
+}), {})(Family)

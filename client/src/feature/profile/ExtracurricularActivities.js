@@ -1,57 +1,34 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
 
-function ContactDetails() {
+function ExtracurricularActivities(props) {
+  const { extracurricularActivities, onUpdate, onSave } = props
   return (
     <div className='col s12'>
       <div className="row">
-        <h5>家庭</h5><span>Family</span>
+        <h5>课外活动</h5><span>Extracurricular Activities</span>
       </div>
       <div className="row">
         <div className="input-field col s6">
-          <input id="First name" type="text" className="validate" />
-          <label htmlFor="First name">名 First name</label>
+          <input value={extracurricularActivities.activity_name || ''} onChange={e => onUpdate({activity_name: e.target.value})} id="activity_name" type="text" />
+          <label className={extracurricularActivities.activity_name? 'active' : ''} htmlFor="activity_name">活动名称 Activity name</label>
         </div>
         <div className="input-field col s6">
-          <input id="Last name" type="text" className="validate" />
-          <label htmlFor="Last name">姓 Last name</label>
+          <input value={extracurricularActivities.position || ''} onChange={e => onUpdate({position: e.target.value})} id="position" type="text" />
+          <label className={extracurricularActivities.position? 'active' : ''} htmlFor="position">担任职务 Position</label>
         </div>
         <div className="input-field col s6">
-          <input id="Occupation" type="text" className="validate" />
-          <label htmlFor="Occupation">工作职务 Occupation</label>
+          <input value={extracurricularActivities.duration || ''} onChange={e => onUpdate({duration: e.target.value})} id="duration" type="text" />
+          <label className={extracurricularActivities.duration? 'active' : ''} htmlFor="duration">参与时长 Duration</label>
         </div>
-        <div className="input-field col s6">
-          <input id="Education level" type="text" className="validate" />
-          <label htmlFor="Education level">教育程度 Education level</label>
-        </div>
-        <div className="input-field col s6">
-          <input id="Is your father living" type="text" className="validate" />
-          <label htmlFor="Is your father living">父亲是否健在 Is your father living</label>
-        </div>
-
-        <div className="input-field col s6">
-          <input id="First name" type="text" className="validate" />
-          <label htmlFor="First name">名 First name</label>
-        </div>
-        <div className="input-field col s6">
-          <input id="Last name" type="text" className="validate" />
-          <label htmlFor="Last name">姓 Last name</label>
-        </div>
-        <div className="input-field col s6">
-          <input id="Occupation" type="text" className="validate" />
-          <label htmlFor="Occupation">工作职务 Occupation</label>
-        </div>
-        <div className="input-field col s6">
-          <input id="Education level" type="text" className="validate" />
-          <label htmlFor="Education level">教育程度 Education level</label>
-        </div>
-        <div className="input-field col s6">
-          <input id="Is your father living" type="text" className="validate" />
-          <label htmlFor="Is your father living">父亲是否健在 Is your father living</label>
-        </div>
-
+      </div>
+      <div>
+        <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>
       </div>
     </div>
   );
 }
 
-export default ContactDetails;
+export default connect(state => ({
+  extracurricularActivities: state.profile.extracurricularActivities
+}), {})(ExtracurricularActivities)

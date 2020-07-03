@@ -12,7 +12,15 @@ const initial = {
     date_of_birth: ''
   },
   contactDetails: {},
-  family: {}
+  family: {},
+  highSchool1: {},
+  highSchool2: {},
+  college: {},
+  futurePlans: {},
+  tests: {},
+  extracurricularActivities: {},
+  hobbies: {},
+  writing: {},
 }
 
 const profileSlice = createSlice({
