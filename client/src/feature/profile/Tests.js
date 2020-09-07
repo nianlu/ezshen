@@ -19,6 +19,14 @@ function Tests(props) {
           <input value={tests.score || ''} onChange={e => onUpdate({score: e.target.value})} id="score" type="text" />
           <label className={tests.score? 'active' : ''} htmlFor="score">分数 Score</label>
         </div>
+        <div className="input-field col s6">
+          <input value={tests.test_date || ''} onChange={e => onUpdate({test_date: e.target.value})} id="test_date" type="text" />
+          <label className={tests.test_date? 'active' : ''} htmlFor="test_date">考试时间 Test date</label>
+        </div>
+        <div className="input-field col s6">
+          <input value={tests.planned_test_date || ''} onChange={e => onUpdate({planned_test_date: e.target.value})} id="planned_test_date" type="text" />
+          <label className={tests.planned_test_date? 'active' : ''} htmlFor="planned_test_date">计划下次考试时间 Planned test date</label>
+        </div>
       </div>
       <div>
         <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>

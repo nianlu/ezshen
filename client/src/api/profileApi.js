@@ -5,10 +5,18 @@ export const getPersonalInformation = (callback, catchback) =>
   .then(response => callback(response.data))
   .catch(error => catchback(error))
 
-// export const getPersonalInformation = (callback, catchback) => {}
-export const getContactDetails = (callback, catchback) => {}
-export const getFamily = (callback, catchback) => {}
-export const getHighSchool1 = (callback, catchback) => {}
+export const getContactDetails = (callback, catchback) =>
+  axios.get('/contactinfo')
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
+export const getFamily = (callback, catchback) =>
+  axios.get('/familyinfo')
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
+export const getHighSchool1 = (callback, catchback) =>
+  axios.get('/highschoolinfo')
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
 export const getHighSchool2 = (callback, catchback) => {}
 export const getCollege = (callback, catchback) => {}
 export const getFuturePlans = (callback, catchback) => {}
@@ -23,11 +31,24 @@ export const putPersonalInformation = (data, callback, catchback) =>
   })
   .then(response => callback(response.data))
   .catch(error => catchback(error))
-
-// export const putPersonalInformation = (data, callback, catchback) => {}
-export const putContactDetails = (data, callback, catchback) => {}
-export const putFamily = (data, callback, catchback) => {}
-export const putHighSchool1 = (data, callback, catchback) => {}
+export const putContactDetails = (data, callback, catchback) =>
+  axios.put('/contactinfo', {
+    ...data
+  })
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
+export const putFamily = (data, callback, catchback) =>
+  axios.put('/familyinfo', {
+    ...data
+  })
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
+export const putHighSchool1 = (data, callback, catchback) =>
+  axios.put('/highschoolinfo', {
+    ...data
+  })
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
 export const putHighSchool2 = (data, callback, catchback) => {}
 export const putCollege = (data, callback, catchback) => {}
 export const putFuturePlans = (data, callback, catchback) => {}

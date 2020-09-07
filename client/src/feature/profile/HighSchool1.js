@@ -10,33 +10,29 @@ function HighSchool1(props) {
       </div>
       <div className="row">
         <div className="input-field col s6">
-          <input value={highSchool1.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool1.date_of_birth? 'active' : ''} htmlFor="year_of_entry">入学年月 Year of entry</label>
+          <input value={highSchool1.year_of_entry1 || ''} onChange={e => onUpdate({year_of_entry1: e.target.value})} id="year_of_entry1" type="text" />
+          <label className={highSchool1.year_of_entry1? 'active' : ''} htmlFor="year_of_entry1">入学年月 Year of entry</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool1.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool1.date_of_birth? 'active' : ''} htmlFor="year_of_graduation">毕业年月 Year of graduation</label>
+          <input value={highSchool1.year_of_graduation1 || ''} onChange={e => onUpdate({year_of_graduation1: e.target.value})} id="year_of_graduation1" type="text" />
+          <label className={highSchool1.year_of_graduation1? 'active' : ''} htmlFor="year_of_graduation1">毕业年月 Year of graduation</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool1.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool1.date_of_birth? 'active' : ''} htmlFor="school_name">毕业学校名称 School name</label>
+          <input value={highSchool1.school_name1 || ''} onChange={e => onUpdate({school_name1: e.target.value})} id="school_name1" type="text" />
+          <label className={highSchool1.school_name1? 'active' : ''} htmlFor="school_name1">毕业学校名称 School name</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool1.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool1.date_of_birth? 'active' : ''} htmlFor="year_of_entry">入学年月 Year of entry</label>
+          <input value={highSchool1.year_of_entry2 || ''} onChange={e => onUpdate({year_of_entry2: e.target.value})} id="year_of_entry2" type="text" />
+          <label className={highSchool1.year_of_entry2? 'active' : ''} htmlFor="year_of_entry2">入学年月 Year of entry</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool1.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool1.date_of_birth? 'active' : ''} htmlFor="year_of_graduation">毕业年月 Year of graduation</label>
+          <input value={highSchool1.year_of_graduation2 || ''} onChange={e => onUpdate({year_of_graduation2: e.target.value})} id="year_of_graduation2" type="text" />
+          <label className={highSchool1.year_of_graduation2? 'active' : ''} htmlFor="year_of_graduation2">毕业年月 Year of graduation</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool1.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool1.date_of_birth? 'active' : ''} htmlFor="school_name">曾就读学校名称 School name</label>
+          <input value={highSchool1.school_name2 || ''} onChange={e => onUpdate({school_name2: e.target.value})} id="school_name2" type="text" />
+          <label className={highSchool1.school_name2? 'active' : ''} htmlFor="school_name2">曾就读学校名称 School name</label>
         </div>
-        {/* <div className="input-field col s6">
-          <input value={highSchool1.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool1.date_of_birth? 'active' : ''} htmlFor="date_of_birth">生日 Date of birth</label>
-        </div> */}
       </div>
       <div>
         <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>

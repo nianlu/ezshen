@@ -1,22 +1,47 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
+import SchoolEntry from './SchoolEntry';
 
 function Schools() {
   return (
     <div>
-      <div className="row" style={{marginTop: '1rem'}}>
-        <div className="col s2">
-          <div className="chip">公立学校</div>
-          <div className="chip">私立学校</div>
-          <div className="chip">排名前100</div>
-          <div className="chip">不需要GRE</div>
-        </div>
-        <div className="col s10">
-          <div className="row">
-            <input className="col s10" placeholder="学校，城市 或 专业"></input>
-            <a className="waves-effect waves-light btn">搜索</a>
+      <Switch>
+        <Route exact path="/schools">
+          <div className="row" style={{marginTop: '1rem'}}>
+            <div className="col s2">
+            </div>
+            <div className="col s10">
+              <div className="row" style={{marginTop: '1rem'}}>
+                <div className="col s1"></div>
+                <div className="col s3" style={{backgroundColor: 'lightgreen', height: '5rem'}}>
+                  <Link to='/schools/x'>
+                    维拉诺瓦大学
+                  </Link>
+                </div>
+                <div className="col s3" style={{backgroundColor: 'lightblue', height: '5rem'}}>
+                  school 2
+                </div>
+                <div className="col s3" style={{backgroundColor: 'lightblue', height: '5rem'}}>
+                  school 3
+                </div>
+                <div className="col s1"></div>
+                {/* <Link className="col s4" to='/schools/x'>
+                  维拉诺瓦大学
+                </Link>
+                <Link className="col s4" to='/schools/2'>
+                  school 2
+                </Link>
+                <Link className="col s4" to='/schools/3'>
+                  school 3
+                </Link> */}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </Route>
+        <Route path="/schools/x">
+          <SchoolEntry />
+        </Route>
+      </Switch>
     </div>
   );
 }

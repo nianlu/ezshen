@@ -9,7 +9,7 @@ const initial = {
     nick_name: '',
     other_name: '',
     sex: '',
-    date_of_birth: ''
+    date_of_birth: null
   },
   contactDetails: {},
   family: {},
@@ -157,7 +157,7 @@ export const fetchProfile = s => dispatch => {
 }
 
 export const saveProfile = (s, d) => dispatch => {
-  console.log('profileslice updatepersonalInfo')
+  console.log('profileslice saveprofile', s, d)
   dispatch(saveProfileStart)
   if (s === 'personalInformation')
     api.putPersonalInformation(

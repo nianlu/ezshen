@@ -14,10 +14,13 @@ function Hobbies(props) {
           <input value={hobbies.name || ''} onChange={e => onUpdate({name: e.target.value})} id="name" type="text" />
           <label className={hobbies.name? 'active' : ''} htmlFor="name">名称 Name</label>
         </div>
-        <div className="input-field col s6">
-{/* 兴趣爱好及特长	Duration	参与时长 */}
+        {/* <div className="input-field col s6">
           <input value={hobbies.duration || ''} onChange={e => onUpdate({duration: e.target.value})} id="duration" type="text" />
           <label className={hobbies.duration? 'active' : ''} htmlFor="duration">参与时长 Duration</label>
+        </div> */}
+        <div className="input-field col s6">
+          <input value={hobbies.participation_grade_level || ''} onChange={e => onUpdate({participation_grade_level: e.target.value})} id="participation_grade_level" type="text" />
+          <label className={hobbies.participation_grade_level? 'active' : ''} htmlFor="participation_grade_level">那个年级参加活动 Participation grade level</label>
         </div>
       </div>
       <div>

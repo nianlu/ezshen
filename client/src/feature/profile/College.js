@@ -37,10 +37,6 @@ function College(props) {
           <input value={college.honors_and_rewards || ''} onChange={e => onUpdate({honors_and_rewards: e.target.value})} id="honors_and_rewards" type="text" />
           <label className={college.honors_and_rewards? 'active' : ''} htmlFor="honors_and_rewards">荣誉和奖励 Honors and rewards</label>
         </div>
-        <div className="input-field col s6">
-          <input value={college.other_languages || ''} onChange={e => onUpdate({other_languages: e.target.value})} id="other_languages" type="text" />
-          <label className={college.other_languages? 'active' : ''} htmlFor="other_languages">其他掌握语言 Other languages you are proficient in</label>
-        </div>
       </div>
       <div>
         <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>

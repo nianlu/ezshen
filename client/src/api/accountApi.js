@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://www.ezshen.com:3000'
+axios.defaults.baseURL = 'http://api.ezshen.com:3000'
 
 axios.interceptors.request.use(
   config => {

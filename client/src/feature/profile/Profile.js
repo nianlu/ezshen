@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import PersonalInformation from './PersonalInfomation';
 import ContactDetails from './ContactDetails';
@@ -51,6 +52,7 @@ function Profile(props) {
 
   const handleActive = a => {
     if (a !== active) {
+      console.log('profile - ', active, a)
       handleSave(active)
       handleFetch(a)
       setActive(a)
@@ -61,22 +63,38 @@ function Profile(props) {
     <div>
       {/* <div className="row" style={{marginTop: '1rem', backgroundColor: '#555555'}}> */}
       <div className="row">
-        <div className='col s2'>
+        <div className='col s3'>
           <div className='collection' style={{cursor: 'pointer'}}>
-            <a className='collection-item' onClick={_ => handleActive(1)}>个人信息</a>
-            <a className='collection-item' onClick={_ => handleActive(2)}>联系方式</a>
-            <a className='collection-item' onClick={_ => handleActive(3)}>家庭</a>
-            <a className='collection-item' onClick={_ => handleActive(4)}>高中1</a>
-            <a className='collection-item' onClick={_ => handleActive(5)}>高中2</a>
-            <a className='collection-item' onClick={_ => handleActive(6)}>大学</a>
-            <a className='collection-item' onClick={_ => handleActive(7)}>未来计划</a>
-            <a className='collection-item' onClick={_ => handleActive(8)}>标化考试</a>
-            <a className='collection-item' onClick={_ => handleActive(9)}>课外活动</a>
-            <a className='collection-item' onClick={_ => handleActive(10)}>兴趣爱好及特长</a>
-            <a className='collection-item' onClick={_ => handleActive(11)}>文书</a>
+            <Link to='/profile'>
+              <a className='collection-item' style={{borderBottom: 1}} onClick={_ => {}}>
+                个人信息
+              </a>
+            </Link>
+            <a className='collection-item' onClick={_ => handleActive(1)} style={{marginLeft: 50}}>个人信息</a>
+            <a className='collection-item' onClick={_ => handleActive(2)} style={{marginLeft: 50}}>联系方式</a>
+            <a className='collection-item' onClick={_ => handleActive(3)} style={{marginLeft: 50}}>家庭</a>
+            <a className='collection-item' onClick={_ => handleActive(4)} style={{marginLeft: 50}}>高中1</a>
+            <a className='collection-item' onClick={_ => handleActive(5)} style={{marginLeft: 50}}>高中2</a>
+            <a className='collection-item' onClick={_ => handleActive(6)} style={{marginLeft: 50}}>大学</a>
+            <a className='collection-item' onClick={_ => handleActive(7)} style={{marginLeft: 50}}>未来计划</a>
+            <a className='collection-item' onClick={_ => handleActive(8)} style={{marginLeft: 50}}>标化考试</a>
+            <a className='collection-item' onClick={_ => handleActive(9)} style={{marginLeft: 50}}>课外活动</a>
+            <a className='collection-item' onClick={_ => handleActive(10)} style={{marginLeft: 50}}>兴趣爱好及特长</a>
+            <a className='collection-item' onClick={_ => handleActive(11)} style={{marginLeft: 50}}>文书</a>
+            <Link to='/admission'>
+              <a className='collection-item' style={{borderBottom: 1}} onClick={_ => {}}>
+                我的申请
+              </a>
+            </Link>
+            <Link to='/profile'>
+              <a className='collection-item' onClick={_ => {}}>我的收藏</a>
+            </Link>
+            <Link to='/account'>
+              <a className='collection-item' onClick={_ => {}}>账户管理</a>
+            </Link>
           </div>
         </div>
-        <div className='col s10' style={{padding: '1rem'}}>
+        <div className='col s9' style={{padding: '1rem'}}>
           {active === 1?
             <PersonalInformation onUpdate={v => handleUpdate(1, v)} onSave={_ => handleSave(1)} />
           : active === 2?

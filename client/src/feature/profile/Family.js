@@ -48,11 +48,7 @@ function Family(props) {
         </div>
         <div className="input-field col s6">
           <input id="Is your father living" type="text" className="validate" />
-          <label htmlFor="Is your father living">父亲是否健在 Is your father living</label>
-        </div>
-        <div className="input-field col s6">
-          <input value={family.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={family.date_of_birth? 'active' : ''} htmlFor="date_of_birth">生日 Date of birth</label>
+          <label htmlFor="Is your father living">母亲是否健在 Is your mother living</label>
         </div>
       </div>
       <div>

@@ -8,11 +8,12 @@ import M from 'materialize-css' //needed for animation
 import 'materialize-css/dist/css/materialize.min.css'
 // import './App.css'
 
-import Home from '../feature/home/Home'
-import Account from '../feature/account/Account'
-import Schools from '../feature/schools/Schools'
-import Profile from '../feature/profile/Profile';
-import { logout } from '../feature/account/accountSlice';
+import Home from 'feature/home/Home'
+import Account from 'feature/account/Account'
+import Schools from 'feature/schools/Schools'
+import Profile from 'feature/profile/Profile';
+import Admission from 'feature/admission/Admission';
+import { logout } from 'feature/account/accountSlice';
 import Login from 'feature/account/Login';
 import Register from 'feature/account/Register';
 import Forgot from 'feature/account/Forgot';
@@ -32,19 +33,23 @@ function App(props) {
             <Link to="/">易申</Link>
           </div>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><Link to="/schools">查询</Link></li>
-            <li><Link to="/">计划</Link></li>
-            <li><Link to="/">申请</Link></li>
+            {/* <li><Link to="/">查询</Link></li> */}
+            <li><Link to="/schools">查找学校</Link></li>
+            <li><Link to="/schools">特色项目</Link></li>
+            <li><Link to="/schools">留学头条</Link></li>
+            <li><Link to="/schools">关于易申</Link></li>
+            <li><Link to="/schools">开始申请</Link></li>
             {login?
               <>
-              <li><Link to="/profile" onClick={_ => fetchPersonalInformation()}>申请信息</Link></li>
-              <li><Link to="/account">账户</Link></li>
+              {/* <li><Link to="/profile" onClick={_ => fetchPersonalInformation()}>我的申请</Link></li> */}
+              <li><Link to="/admission">我的申请</Link></li>
+              <li><Link to="/account">账户管理</Link></li>
               <li><a onClick={_ => logout()}>登出</a></li>
               </>
               :
               <>
-              <li><Link to="/login">登录</Link></li>
-              <li><Link to="/register">注册</Link></li>
+              <li><Link to="/login">登录/注册</Link></li>
+              {/* <li><Link to="/register">注册</Link></li> */}
               </>
             }
           </ul>
@@ -71,6 +76,9 @@ function App(props) {
             <>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/admission">
+              <Admission />
             </Route>
             <Route path="/account">
               <Account />

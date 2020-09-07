@@ -12,36 +12,32 @@ function ContactDetails(props) {
       </div>
       <div className="row">
         <div className="input-field col s6">
-          <input id="Permanent home address" type="text" className="validate" />
-          <label htmlFor="Permanent home address">家庭住址 Permanent home address</label>
+          <input value={contactDetails.home_address || ''} onChange={e => onUpdate({home_address: e.target.value})} id="home_address" type="text" />
+          <label className={contactDetails.home_address? 'active' : ''} htmlFor="home_address">家庭住址 Permanent home address</label>
         </div>
         <div className="input-field col s6">
-          <input id="Mailing address" type="text" className="validate" />
-          <label htmlFor="Mailing address">邮寄地址 Mailing address</label>
+          <input value={contactDetails.mail_address || ''} onChange={e => onUpdate({mail_address: e.target.value})} id="mail_address" type="text" />
+          <label className={contactDetails.mail_address? 'active' : ''} htmlFor="mail_address">邮寄地址 Mailing address</label>
         </div>
         <div className="input-field col s6">
-          <input id="E-mail address" type="text" className="validate" />
-          <label htmlFor="E-mail address">电子邮箱 E-mail address</label>
+          <input value={contactDetails.email || ''} onChange={e => onUpdate({email: e.target.value})} id="email" type="text" />
+          <label className={contactDetails.email? 'active' : ''} htmlFor="email">电子邮箱 E-mail address</label>
         </div>
         <div className="input-field col s6">
-          <input id="Preferred phone type" type="text" className="validate" />
-          <label htmlFor="Preferred phone type">联系电话类型 Preferred phone type</label>
+          <input value={contactDetails.phone_type || ''} onChange={e => onUpdate({phone_type: e.target.value})} id="phone_type" type="text" />
+          <label className={contactDetails.phone_type? 'active' : ''} htmlFor="phone_type">联系电话类型 Preferred phone type</label>
         </div>
         <div className="input-field col s6">
-          <input id="Preferred phone number" type="text" className="validate" />
-          <label htmlFor="Preferred phone number">联系号码 Preferred phone number</label>
+          <input value={contactDetails.phone_number || ''} onChange={e => onUpdate({phone_number: e.target.value})} id="phone_number" type="text" />
+          <label className={contactDetails.phone_number? 'active' : ''} htmlFor="phone_number">联系号码 Preferred phone number</label>
         </div>
         <div className="input-field col s6">
-          <input id="Alternative preferred phone type" type="text" className="validate" />
-          <label htmlFor="Alternative preferred phone type">备选联系电话类型 Alternative preferred phone type</label>
+          <input value={contactDetails.other_phone_type || ''} onChange={e => onUpdate({other_phone_type: e.target.value})} id="other_phone_type" type="text" />
+          <label className={contactDetails.other_phone_type? 'active' : ''} htmlFor="other_phone_type">备选联系电话类型 Alternative preferred phone type</label>
         </div>
         <div className="input-field col s6">
-          <input id="Alternative preferred phone number" type="text" className="validate" />
-          <label htmlFor="Alternative preferred phone number">备选联系号码 Alternative preferred phone number</label>
-        </div>
-        <div className="input-field col s6">
-          <input value={contactDetails.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={contactDetails.date_of_birth? 'active' : ''} htmlFor="date_of_birth">生日 Date of birth</label>
+          <input value={contactDetails.other_phone_number || ''} onChange={e => onUpdate({other_phone_number: e.target.value})} id="other_phone_number" type="text" />
+          <label className={contactDetails.other_phone_number? 'active' : ''} htmlFor="other_phone_number">备选联系号码 Alternative preferred phone number</label>
         </div>
       </div>
       <div>

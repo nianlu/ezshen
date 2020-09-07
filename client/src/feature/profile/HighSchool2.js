@@ -10,12 +10,12 @@ function HighSchool2(props) {
       </div>
       <div className="row">
         <div className="input-field col s6">
-          <input value={highSchool2.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool2.date_of_birth? 'active' : ''} htmlFor="main_courses">所学重点课程 Main courses</label>
+          <input value={highSchool2.main_courses || ''} onChange={e => onUpdate({main_courses: e.target.value})} id="main_courses" type="text" />
+          <label className={highSchool2.main_courses? 'active' : ''} htmlFor="main_courses">所学重点课程 Main courses</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool2.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
-          <label className={highSchool2.date_of_birth? 'active' : ''} htmlFor="gpa">高中三年平均成绩 GPA</label>
+          <input value={highSchool2.gpa || ''} onChange={e => onUpdate({gpa: e.target.value})} id="gpa" type="text" />
+          <label className={highSchool2.gpa? 'active' : ''} htmlFor="gpa">高中三年平均成绩 GPA</label>
         </div>
         <div className="input-field col s6">
           <input value={highSchool2.counselor_first_name || ''} onChange={e => onUpdate({counselor_first_name: e.target.value})} id="counselor_first_name" type="text" />

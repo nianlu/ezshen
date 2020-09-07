@@ -8,19 +8,36 @@ function Home() {
       <section>
       </section>
       <div className="divider"></div>
-      <div className="row">
-        <div className="col">
-          <h4>探索所有的学校，获取所有的资源</h4>
-          <input placeholder="学校，城市 或 专业"></input>
-          <div>添加标签: 
-            <div className="chip">公立学校<i className="close material-icons">x</i></div>
-            <div className="chip">私立学校<i className="close material-icons">x</i></div>
-            <div className="chip">排名前100<i className="close material-icons">x</i></div>
-            <div className="chip">不需要GRE<i className="close material-icons">x</i></div>
+      <div className="row center-align">
+        <div className="col s12" style={{paddingTop: '1rem'}}>
+          <h5>探索所有的学校，获取所有的资源</h5>
+          {/* <input placeholder="学校，城市 或 专业" style={{margin: '2rem 0', width: '40%'}}></input>
+          <a className="waves-effect waves-light btn">搜索</a> */}
+          <div className="row" style={{marginTop: '2rem'}}>
+            <div className="col s1"></div>
+            <div className="col s3" style={{backgroundColor: 'lightgreen', height: '5rem'}}>
+              school 1
+            </div>
+            <div className="col s3" style={{backgroundColor: 'lightblue', height: '5rem'}}>
+              school 2
+            </div>
+            <div className="col s3" style={{backgroundColor: 'lightblue', height: '5rem'}}>
+              school 3
+            </div>
+            <div className="col s1"></div>
           </div>
-          <a className="waves-effect waves-light btn">搜索</a>
-          <span> </span>
-          <a>查看所有</a>
+        </div>
+      </div>
+      <div className="row" style={{paddingTop: '1rem', marginTop: '3rem', backgroundColor: 'lightblue'}}>
+        <h5 style={{marginLeft: '1rem'}}>新闻 咨询</h5>
+        <div className="col s4" style={{backgroundColor: 'lightgreen', height: '10rem'}}>
+          news 1
+        </div>
+        <div className="col s4">
+          news 2
+        </div>
+        <div className="col s4">
+          news 3
         </div>
       </div>
     </div>

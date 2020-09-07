@@ -37,11 +37,16 @@ function Login(props) {
             <button type="submit" className="btn waves-effect waves-light" onClick={e => {e.preventDefault();login(email, password)}} style={{minWidth: '5rem'}}>
               登录
             </button>
-          </div>
-          <div className="row center-align">
             <Link to='/forgot'>
               <button type="submit" className="btn waves-effect waves-light" style={{minWidth: '5rem'}}>
                 忘记密码
+              </button>
+            </Link>
+          </div>
+          <div className="row center-align">
+            <Link to='/register'>
+              <button type="submit" className="btn waves-effect waves-light" style={{minWidth: '5rem'}}>
+                注册
               </button>
             </Link>
           </div>

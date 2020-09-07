@@ -18,8 +18,8 @@ function ExtracurricularActivities(props) {
           <label className={extracurricularActivities.position? 'active' : ''} htmlFor="position">担任职务 Position</label>
         </div>
         <div className="input-field col s6">
-          <input value={extracurricularActivities.duration || ''} onChange={e => onUpdate({duration: e.target.value})} id="duration" type="text" />
-          <label className={extracurricularActivities.duration? 'active' : ''} htmlFor="duration">参与时长 Duration</label>
+          <input value={extracurricularActivities.participation_grade_level || ''} onChange={e => onUpdate({participation_grade_level: e.target.value})} id="participation_grade_level" type="text" />
+          <label className={extracurricularActivities.participation_grade_level? 'active' : ''} htmlFor="participation_grade_level">那个年级参加活动 Participation grade level</label>
         </div>
       </div>
       <div>
