@@ -30,6 +30,8 @@ function Family(props) {
           <label htmlFor="Is your father living">父亲是否健在 Is your father living</label>
         </div>
 
+      </div>
+      <div className="row">
         <div className="input-field col s6">
           <input id="First name" type="text" className="validate" />
           <label htmlFor="First name">名 First name</label>

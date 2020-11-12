@@ -65,32 +65,28 @@ function Profile(props) {
       <div className="row">
         <div className='col s3'>
           <div className='collection' style={{cursor: 'pointer'}}>
-            <Link to='/profile'>
-              <a className='collection-item' style={{borderBottom: 1}} onClick={_ => {}}>
-                个人信息
-              </a>
+            <Link to='/profile' className='collection-item'>
+              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>我的信息</span>
             </Link>
-            <a className='collection-item' onClick={_ => handleActive(1)} style={{marginLeft: 50}}>个人信息</a>
-            <a className='collection-item' onClick={_ => handleActive(2)} style={{marginLeft: 50}}>联系方式</a>
-            <a className='collection-item' onClick={_ => handleActive(3)} style={{marginLeft: 50}}>家庭</a>
-            <a className='collection-item' onClick={_ => handleActive(4)} style={{marginLeft: 50}}>高中1</a>
-            <a className='collection-item' onClick={_ => handleActive(5)} style={{marginLeft: 50}}>高中2</a>
-            <a className='collection-item' onClick={_ => handleActive(6)} style={{marginLeft: 50}}>大学</a>
-            <a className='collection-item' onClick={_ => handleActive(7)} style={{marginLeft: 50}}>未来计划</a>
-            <a className='collection-item' onClick={_ => handleActive(8)} style={{marginLeft: 50}}>标化考试</a>
-            <a className='collection-item' onClick={_ => handleActive(9)} style={{marginLeft: 50}}>课外活动</a>
-            <a className='collection-item' onClick={_ => handleActive(10)} style={{marginLeft: 50}}>兴趣爱好及特长</a>
-            <a className='collection-item' onClick={_ => handleActive(11)} style={{marginLeft: 50}}>文书</a>
-            <Link to='/admission'>
-              <a className='collection-item' style={{borderBottom: 1}} onClick={_ => {}}>
-                我的申请
-              </a>
+            <a className='collection-item' onClick={_ => handleActive(1)}><span style={{marginLeft: 20}}>基本信息</span></a>
+            <a className='collection-item' onClick={_ => handleActive(2)}><span style={{marginLeft: 20}}>联系方式</span></a>
+            <a className='collection-item' onClick={_ => handleActive(3)}><span style={{marginLeft: 20}}>家庭</span></a>
+            <a className='collection-item' onClick={_ => handleActive(4)}><span style={{marginLeft: 20}}>高中</span>1</a>
+            <a className='collection-item' onClick={_ => handleActive(5)}><span style={{marginLeft: 20}}>高中</span>2</a>
+            <a className='collection-item' onClick={_ => handleActive(6)}><span style={{marginLeft: 20}}>大学</span></a>
+            <a className='collection-item' onClick={_ => handleActive(7)}><span style={{marginLeft: 20}}>未来计划</span></a>
+            <a className='collection-item' onClick={_ => handleActive(8)}><span style={{marginLeft: 20}}>标化考试</span></a>
+            <a className='collection-item' onClick={_ => handleActive(9)}><span style={{marginLeft: 20}}>课外活动</span></a>
+            <a className='collection-item' onClick={_ => handleActive(10)}><span style={{marginLeft: 20}}>兴趣爱好及特长</span></a>
+            <a className='collection-item' onClick={_ => handleActive(11)}><span style={{marginLeft: 20}}>文书</span></a>
+            <Link to='/admission' className='collection-item'>
+              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>我的申请</span>
             </Link>
-            <Link to='/profile'>
-              <a className='collection-item' onClick={_ => {}}>我的收藏</a>
+            <Link to='/profile' className='collection-item'>
+              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>我的收藏</span>
             </Link>
-            <Link to='/account'>
-              <a className='collection-item' onClick={_ => {}}>账户管理</a>
+            <Link to='/account' className='collection-item'>
+              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>账户管理</span>
             </Link>
           </div>
         </div>

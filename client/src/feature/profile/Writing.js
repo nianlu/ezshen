@@ -9,9 +9,10 @@ function Writing(props) {
         <h5>文书</h5><span>Writing</span>
       </div>
       <div className="row">
-        <div className="input-field col s6">
+        <div className="input-field col s12">
         {/* 文书	Personal Essay	个人陈述 */}
-          <input value={writing.personal_essay || ''} onChange={e => onUpdate({personal_essay: e.target.value})} id="personal_essay" type="text" />
+          {/* <input value={writing.personal_essay || ''} onChange={e => onUpdate({personal_essay: e.target.value})} id="personal_essay" type="text" /> */}
+          <textarea className="materialize-textarea" value={writing.personal_essay || ''} onChange={e => onUpdate({personal_essay: e.target.value})} id="personal_essay" />
           <label className={writing.personal_essay? 'active' : ''} htmlFor="personal_essay">个人陈述 Personal Essay</label>
         </div>
       </div>

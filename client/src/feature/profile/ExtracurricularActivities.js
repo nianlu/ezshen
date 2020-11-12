@@ -8,20 +8,27 @@ function ExtracurricularActivities(props) {
       <div className="row">
         <h5>课外活动</h5><span>Extracurricular Activities</span>
       </div>
-      <div className="row">
-        <div className="input-field col s6">
-          <input value={extracurricularActivities.activity_name || ''} onChange={e => onUpdate({activity_name: e.target.value})} id="activity_name" type="text" />
-          <label className={extracurricularActivities.activity_name? 'active' : ''} htmlFor="activity_name">活动名称 Activity name</label>
-        </div>
-        <div className="input-field col s6">
-          <input value={extracurricularActivities.position || ''} onChange={e => onUpdate({position: e.target.value})} id="position" type="text" />
-          <label className={extracurricularActivities.position? 'active' : ''} htmlFor="position">担任职务 Position</label>
-        </div>
-        <div className="input-field col s6">
-          <input value={extracurricularActivities.participation_grade_level || ''} onChange={e => onUpdate({participation_grade_level: e.target.value})} id="participation_grade_level" type="text" />
-          <label className={extracurricularActivities.participation_grade_level? 'active' : ''} htmlFor="participation_grade_level">那个年级参加活动 Participation grade level</label>
-        </div>
+      <div>
+        {extracurricularActivities.map((d, i) =>
+          <div className="row" key={'extracurricularActivities'+i}>
+            <div className="input-field col s6">
+              <input value={d.activity_name || ''} onChange={e => onUpdate({type: 'update', id: i, data: {activity_name: e.target.value}})} id={"activity_name"+i} type="text" />
+              <label className={d.activity_name? 'active' : ''} htmlFor={"activity_name"+i}>活动名称 Activity name</label>
+            </div>
+            <div className="input-field col s6">
+              <input value={d.position || ''} onChange={e => onUpdate({type: 'update', id: i, data: {position: e.target.value}})} id={"position"+i} type="text" />
+              <label className={d.position? 'active' : ''} htmlFor={"position"+i}>担任职务 Position</label>
+            </div>
+            <div className="input-field col s6">
+              <input value={d.participation_grade_level || ''} onChange={e => onUpdate({type: 'update', id: i, data: {participation_grade_level: e.target.value}})} id={"participation_grade_level"+i} type="text" />
+              <label className={d.participation_grade_level? 'active' : ''} htmlFor={"participation_grade_level"+i}>那个年级参加活动 Participation grade level</label>
+            </div>
+          </div>
+        )}
+        <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove'})}><i class="material-icons">-</i></span>
+        <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'add'})}><i class="material-icons">+</i></span>
       </div>
+      
       <div>
         <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>
       </div>

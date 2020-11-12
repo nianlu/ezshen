@@ -25,6 +25,12 @@ const mapDispatch = { logout, fetchPersonalInformation }
 function App(props) {
   const { login, logout, fetchPersonalInformation } = props
 
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    // var instances = M.FormSelect.init(elems, options);
+    var instances = M.FormSelect.init(elems);
+  });
+
   return (
     <Router>
       <nav className=" teal lighten-3">
@@ -32,8 +38,8 @@ function App(props) {
           <div className="brand-logo">
             <Link to="/">易申</Link>
           </div>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {/* <li><Link to="/">查询</Link></li> */}
+          {/* <ul id="nav-mobile" className="right hide-on-med-and-down"> */}
+          <ul id="nav-mobile" className="right">
             <li><Link to="/schools">查找学校</Link></li>
             <li><Link to="/schools">特色项目</Link></li>
             <li><Link to="/schools">留学头条</Link></li>

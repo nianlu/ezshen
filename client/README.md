@@ -11,6 +11,11 @@ DB
 ezshen.c4yfq730wtde.us-east-1.rds.amazonaws.com
 
 ---
+- upload s3
+1. aws configure
+  (use: aws keys; region: us-east-1)
+2. aws s3 cp build/ s3://ezshen-web/ --recursive
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

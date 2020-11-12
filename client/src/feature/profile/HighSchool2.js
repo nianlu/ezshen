@@ -9,41 +9,40 @@ function HighSchool2(props) {
         <h5>高中2</h5><span>High School 2</span>
       </div>
       <div className="row">
-        <div className="input-field col s6">
-          <input value={highSchool2.main_courses || ''} onChange={e => onUpdate({main_courses: e.target.value})} id="main_courses" type="text" />
+        <div className="input-field col s12">
+          {/* <input value={highSchool2.main_courses || ''} onChange={e => onUpdate({main_courses: e.target.value})} id="main_courses" type="text" /> */}
+          <textarea className="materialize-textarea" value={highSchool2.main_courses || ''} onChange={e => onUpdate({main_courses: e.target.value})} id="main_courses" />
           <label className={highSchool2.main_courses? 'active' : ''} htmlFor="main_courses">所学重点课程 Main courses</label>
         </div>
         <div className="input-field col s6">
           <input value={highSchool2.gpa || ''} onChange={e => onUpdate({gpa: e.target.value})} id="gpa" type="text" />
           <label className={highSchool2.gpa? 'active' : ''} htmlFor="gpa">高中三年平均成绩 GPA</label>
         </div>
+      </div>
+      <div className="row">
         <div className="input-field col s6">
-          <input value={highSchool2.counselor_first_name || ''} onChange={e => onUpdate({counselor_first_name: e.target.value})} id="counselor_first_name" type="text" />
-          <label className={highSchool2.counselor_first_name? 'active' : ''} htmlFor="counselor_first_name">指导老师名 Counselor's first name</label>
+          <input value={highSchool2.counselor_firstname || ''} onChange={e => onUpdate({counselor_firstname: e.target.value})} id="counselor_firstname" type="text" />
+          <label className={highSchool2.counselor_firstname? 'active' : ''} htmlFor="counselor_firstname">指导老师名 Counselor's first name</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool2.counselor_last_name || ''} onChange={e => onUpdate({counselor_last_name: e.target.value})} id="counselor_last_name" type="text" />
-          <label className={highSchool2.counselor_last_name? 'active' : ''} htmlFor="counselor_last_name">指导老师姓 Counselor's last name</label>
+          <input value={highSchool2.counselor_lastname || ''} onChange={e => onUpdate({counselor_lastname: e.target.value})} id="counselor_lastname" type="text" />
+          <label className={highSchool2.counselor_lastname? 'active' : ''} htmlFor="counselor_lastname">指导老师姓 Counselor's last name</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool2.counselor_job_title || ''} onChange={e => onUpdate({counselor_job_title: e.target.value})} id="counselor_job_title" type="text" />
-          <label className={highSchool2.counselor_job_title? 'active' : ''} htmlFor="counselor_job_title">指导老师工作职务 Counselor's job title</label>
+          <input value={highSchool2.counselor_title || ''} onChange={e => onUpdate({counselor_title: e.target.value})} id="counselor_title" type="text" />
+          <label className={highSchool2.counselor_title? 'active' : ''} htmlFor="counselor_title">指导老师工作职务 Counselor's job title</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool2.counselor_email_address || ''} onChange={e => onUpdate({counselor_email_address: e.target.value})} id="counselor_email_address" type="text" />
-          <label className={highSchool2.counselor_email_address? 'active' : ''} htmlFor="counselor_email_address">指导老师电子邮箱 Counselor's e-mail address</label>
+          <input value={highSchool2.counselor_email || ''} onChange={e => onUpdate({counselor_email: e.target.value})} id="counselor_email" type="text" />
+          <label className={highSchool2.counselor_email? 'active' : ''} htmlFor="counselor_email">指导老师电子邮箱 Counselor's e-mail address</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool2.counselor_phone_number || ''} onChange={e => onUpdate({counselor_phone_number: e.target.value})} id="counselor_phone_number" type="text" />
-          <label className={highSchool2.counselor_phone_number? 'active' : ''} htmlFor="counselor_phone_number">指导老师电话号码 Counselor's phone number</label>
+          <input value={highSchool2.counselor_phone || ''} onChange={e => onUpdate({counselor_phone: e.target.value})} id="counselor_phone" type="text" />
+          <label className={highSchool2.counselor_phone? 'active' : ''} htmlFor="counselor_phone">指导老师电话号码 Counselor's phone number</label>
         </div>
         <div className="input-field col s6">
-          <input value={highSchool2.honors_and_rewards || ''} onChange={e => onUpdate({honors_and_rewards: e.target.value})} id="honors_and_rewards" type="text" />
-          <label className={highSchool2.honors_and_rewards? 'active' : ''} htmlFor="honors_and_rewards">荣誉和奖励 Honors and rewards</label>
-        </div>
-        <div className="input-field col s6">
-          <input value={highSchool2.other_languages || ''} onChange={e => onUpdate({other_languages: e.target.value})} id="other_languages" type="text" />
-          <label className={highSchool2.other_languages? 'active' : ''} htmlFor="other_languages">其他掌握语言 Other languages you are proficient in</label>
+          <input value={highSchool2.awards || ''} onChange={e => onUpdate({awards: e.target.value})} id="awards" type="text" />
+          <label className={highSchool2.awards? 'active' : ''} htmlFor="awards">荣誉和奖励 Honors and rewards</label>
         </div>
       </div>
       <div>

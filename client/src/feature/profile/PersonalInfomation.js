@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
+
+import M from 'materialize-css' //needed for animation
 
 function PersonalInformation(props) {
 
   const { personalInformation, onUpdate, onSave } = props
   // console.log('pi', personalInformation)
+  useEffect(() => {
+    var elems = document.querySelectorAll('select');
+    // var instances = M.FormSelect.init(elems, options);
+    var instances = M.FormSelect.init(elems);
+  }, [])
 
   return (
     <div className='col s12'>
@@ -29,8 +36,14 @@ function PersonalInformation(props) {
           <label className={personalInformation.other_name? 'active' : ''} htmlFor="other_name">曾用名 Other name</label>
         </div>
         <div className="input-field col s6">
-          <input value={personalInformation.sex || ''} onChange={e => onUpdate({sex: e.target.value})} id="sex" type="text" />
-          <label className={personalInformation.sex? 'active' : ''} htmlFor="sex">性别 Sex</label>
+          {/* <input value={personalInformation.sex || ''} onChange={e => onUpdate({sex: e.target.value})} id="sex" type="text" /> */}
+          {/* <label className={personalInformation.sex? 'active' : ''} htmlFor="sex">性别 Sex</label> */}
+          <select>
+            <option value="" disabled selected>请选择</option>
+            <option value="m">男</option>
+            <option value="f">女</option>
+          </select>
+          <label>性别 Sex</label>
         </div>
         <div className="input-field col s6">
           <input value={personalInformation.date_of_birth || ''} onChange={e => onUpdate({date_of_birth: e.target.value})} id="date_of_birth" type="text" />
