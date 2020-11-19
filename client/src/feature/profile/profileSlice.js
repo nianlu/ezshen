@@ -81,53 +81,69 @@ const profileSlice = createSlice({
       else if (action.payload.type === 'family')
         state.family = {...state.family, ...action.payload.data}
       else if (action.payload.type === 'highSchool1')
-        state.highSchool1 = action.payload.data.type === 'add'?
-          [...state.highSchool1, {record_id: state.highSchool1.length}]
-        : action.payload.data.type === 'remove'?
-          state.highSchool1.slice(0, state.highSchool1.length-1)
-        : action.payload.data.type === 'update'?
-          [...state.highSchool1.slice(0, action.payload.data.id),
-            {...state.highSchool1[action.payload.data.id], ...action.payload.data.data},
-            ...state.highSchool1.slice(action.payload.data.id+1)
-          ]
-        : state.highSchool1
+        state.highSchool1 = (
+          action.payload.data.type === 'add'?
+            [...state.highSchool1, {}]
+          : action.payload.data.type === 'remove'?
+            [...state.highSchool1.slice(0, action.payload.data.id),
+              ...state.highSchool1.slice(action.payload.data.id+1)
+            ]
+          : action.payload.data.type === 'update'?
+            [...state.highSchool1.slice(0, action.payload.data.id),
+              {...state.highSchool1[action.payload.data.id], ...action.payload.data.data},
+              ...state.highSchool1.slice(action.payload.data.id+1)
+            ]
+          : state.highSchool1
+        ).reduce((a, c) => [...a, {...c, record_id: a.length+1}], [])
       else if (action.payload.type === 'highSchool2')
         state.highSchool2 = {...state.highSchool2, ...action.payload.data}
       else if (action.payload.type === 'college')
-        state.college = action.payload.data.type === 'add'?
-          [...state.college, {record_id: state.college.length}]
-        : action.payload.data.type === 'remove'?
-          state.college.slice(0, state.college.length-1)
-        : action.payload.data.type === 'update'?
-          [...state.college.slice(0, action.payload.data.id),
-            {...state.college[action.payload.data.id], ...action.payload.data.data},
-            ...state.college.slice(action.payload.data.id+1)
-          ]
-        : state.college
+        state.college = (
+          action.payload.data.type === 'add'?
+            [...state.college, {}]
+          : action.payload.data.type === 'remove'?
+            [...state.college.slice(0, action.payload.data.id),
+              ...state.college.slice(action.payload.data.id+1)
+            ]
+          : action.payload.data.type === 'update'?
+            [...state.college.slice(0, action.payload.data.id),
+              {...state.college[action.payload.data.id], ...action.payload.data.data},
+              ...state.college.slice(action.payload.data.id+1)
+            ]
+          : state.college
+        ).reduce((a, c) => [...a, {...c, record_id: a.length+1}], [])
       else if (action.payload.type === 'futurePlans')
         state.futurePlans = {...state.futurePlans, ...action.payload.data}
       else if (action.payload.type === 'tests')
-        state.tests = action.payload.data.type === 'add'?
-          [...state.tests, {record_id: state.tests.length}]
-        : action.payload.data.type === 'remove'?
-          state.tests.slice(0, state.tests.length-1)
-        : action.payload.data.type === 'update'?
-          [...state.tests.slice(0, action.payload.data.id),
-            {...state.tests[action.payload.data.id], ...action.payload.data.data},
-            ...state.tests.slice(action.payload.data.id+1)
-          ]
-        : state.tests
+        state.tests = (
+          action.payload.data.type === 'add'?
+            [...state.tests, {}]
+          : action.payload.data.type === 'remove'?
+            [...state.tests.slice(0, action.payload.data.id),
+              ...state.tests.slice(action.payload.data.id+1)
+            ]
+          : action.payload.data.type === 'update'?
+            [...state.tests.slice(0, action.payload.data.id),
+              {...state.tests[action.payload.data.id], ...action.payload.data.data},
+              ...state.tests.slice(action.payload.data.id+1)
+            ]
+          : state.tests
+        ).reduce((a, c) => [...a, {...c, record_id: a.length+1}], [])
       else if (action.payload.type === 'extracurricularActivities')
-        state.extracurricularActivities = action.payload.data.type === 'add'?
-          [...state.extracurricularActivities, {record_id: state.extracurricularActivities.length}]
-        : action.payload.data.type === 'remove'?
-          state.extracurricularActivities.slice(0, state.extracurricularActivities.length-1)
-        : action.payload.data.type === 'update'?
-          [...state.extracurricularActivities.slice(0, action.payload.data.id),
-            {...state.extracurricularActivities[action.payload.data.id], ...action.payload.data.data},
-            ...state.extracurricularActivities.slice(action.payload.data.id+1)
-          ]
-        : state.extracurricularActivities
+        state.extracurricularActivities = (
+          action.payload.data.type === 'add'?
+            [...state.extracurricularActivities, {}]
+          : action.payload.data.type === 'remove'?
+            [...state.extracurricularActivities.slice(0, action.payload.data.id),
+              ...state.extracurricularActivities.slice(action.payload.data.id+1)
+            ]
+          : action.payload.data.type === 'update'?
+            [...state.extracurricularActivities.slice(0, action.payload.data.id),
+              {...state.extracurricularActivities[action.payload.data.id], ...action.payload.data.data},
+              ...state.extracurricularActivities.slice(action.payload.data.id+1)
+            ]
+          : state.extracurricularActivities
+        ).reduce((a, c) => [...a, {...c, record_id: a.length+1}], [])
       else if (action.payload.type === 'hobbies')
         state.hobbies = {...state.hobbies, ...action.payload.data}
       else if (action.payload.type === 'writing')

@@ -39,9 +39,11 @@ function College(props) {
               <input value={d.honors_and_rewards || ''} onChange={e => onUpdate({type: 'update', id: i, data: {honors_and_rewards: e.target.value}})} id={"honors_and_rewards"+i} type="text" />
               <label className={d.honors_and_rewards? 'active' : ''} htmlFor={"honors_and_rewards"+i}>荣誉和奖励 Honors and rewards</label>
             </div>
+            {college.length > 1 &&
+              <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove', id: i})}><i class="material-icons">-</i></span>
+            }
           </div>
         )}
-        <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove'})}><i class="material-icons">-</i></span>
         <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'add'})}><i class="material-icons">+</i></span>
       </div>
       <div>

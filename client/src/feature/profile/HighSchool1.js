@@ -23,9 +23,11 @@ function HighSchool1(props) {
               <input value={d.school_name || ''} onChange={e => onUpdate({type: 'update', id: i, data: {school_name: e.target.value}})} id={"school_name"+i} type="text" />
               <label className={d.school_name? 'active' : ''} htmlFor={"school_name"+i}>毕业学校名称 School name</label>
             </div>
+            {highSchool1.length > 1 &&
+              <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove', id: i})}><i class="material-icons">-</i></span>
+            }
           </div>
         )}
-        <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove'})}><i class="material-icons">-</i></span>
         <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'add'})}><i class="material-icons">+</i></span>
       </div>
       <div>

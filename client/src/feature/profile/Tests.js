@@ -29,9 +29,11 @@ function Tests(props) {
               <input value={d.next_test_date || ''} onChange={e => onUpdate({type: 'update', id: i, data: {next_test_date: e.target.value}})} id={"next_test_date"+i} type="text" />
               <label className={d.next_test_date? 'active' : ''} htmlFor={"next_test_date"+i}>计划下次考试时间 Planned test date</label>
             </div>
+            {tests.length > 1 &&
+              <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove', id: i})}><i class="material-icons">-</i></span>
+            }
           </div>
         )}
-        <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove'})}><i class="material-icons">-</i></span>
         <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'add'})}><i class="material-icons">+</i></span>
       </div>
       <div>

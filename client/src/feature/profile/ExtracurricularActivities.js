@@ -23,9 +23,11 @@ function ExtracurricularActivities(props) {
               <input value={d.participation_grade_level || ''} onChange={e => onUpdate({type: 'update', id: i, data: {participation_grade_level: e.target.value}})} id={"participation_grade_level"+i} type="text" />
               <label className={d.participation_grade_level? 'active' : ''} htmlFor={"participation_grade_level"+i}>那个年级参加活动 Participation grade level</label>
             </div>
+            {extracurricularActivities.length > 1 &&
+              <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove', id: i})}><i class="material-icons">-</i></span>
+            }
           </div>
         )}
-        <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove'})}><i class="material-icons">-</i></span>
         <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'add'})}><i class="material-icons">+</i></span>
       </div>
       
