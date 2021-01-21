@@ -9,19 +9,22 @@ function Hobbies(props) {
         <h5>兴趣爱好及特长</h5><span>Hobbies</span>
       </div>
       <div className="row">
-        <div className="input-field col s6">
-{/* 兴趣爱好及特长	Name	名称 */}
-          <input value={hobbies.name || ''} onChange={e => onUpdate({name: e.target.value})} id="name" type="text" />
-          <label className={hobbies.name? 'active' : ''} htmlFor="name">名称 Name</label>
-        </div>
-        {/* <div className="input-field col s6">
-          <input value={hobbies.duration || ''} onChange={e => onUpdate({duration: e.target.value})} id="duration" type="text" />
-          <label className={hobbies.duration? 'active' : ''} htmlFor="duration">参与时长 Duration</label>
-        </div> */}
-        <div className="input-field col s6">
-          <input value={hobbies.participation_grade_level || ''} onChange={e => onUpdate({participation_grade_level: e.target.value})} id="participation_grade_level" type="text" />
-          <label className={hobbies.participation_grade_level? 'active' : ''} htmlFor="participation_grade_level">那个年级参加活动 Participation grade level</label>
-        </div>
+        {hobbies.map((d, i) =>
+          <div className="row" key={'hobbies'+i}>
+            <div className="input-field col s6" style={{maxWidth: '25rem'}}>
+              <input value={d.hobby_name || ''} onChange={e => onUpdate({type: 'update', id: i, data: {hobby_name: e.target.value}})} id={"hobby_name"+i} type="text" />
+              <label className={d.hobby_name? 'active' : ''} htmlFor={"hobby_name"+i}>名称 Name</label>
+            </div>
+            <div className="input-field col s6" style={{maxWidth: '25rem'}}>
+              <input value={d.participation_grade || ''} onChange={e => onUpdate({type: 'update', id: i, data: {participation_grade: e.target.value}})} id={"participation_grade"+i} type="text" />
+              <label className={d.participation_grade? 'active' : ''} htmlFor={"participation_grade"+i}>那个年级参加活动 Participation grade level</label>
+            </div>
+            {hobbies.length > 1 &&
+              <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove', id: i})}><i class="material-icons">-</i></span>
+            }
+          </div>
+        )}
+        <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'add'})}><i class="material-icons">+</i></span>
       </div>
       <div>
         <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>

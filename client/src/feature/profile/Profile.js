@@ -63,7 +63,7 @@ function Profile(props) {
     <div>
       {/* <div className="row" style={{marginTop: '1rem', backgroundColor: '#555555'}}> */}
       <div className="row">
-        <div className='col s3'>
+        <div className='col s2'>
           <div className='collection' style={{cursor: 'pointer'}}>
             <Link to='/profile' className='collection-item'>
               <span style={{fontWeight: 400, fontSize: '1.2rem'}}>我的信息</span>
@@ -90,7 +90,7 @@ function Profile(props) {
             </Link>
           </div>
         </div>
-        <div className='col s9' style={{padding: '1rem'}}>
+        <div className='col s10' style={{padding: '1rem'}}>
           {active === 1?
             <PersonalInformation onUpdate={v => handleUpdate(1, v)} onSave={_ => handleSave(1)} />
           : active === 2?

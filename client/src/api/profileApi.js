@@ -24,10 +24,10 @@ export const getCollege = (callback, catchback) =>
   axios.get('/collegeinfo')
   .then(response => callback(response.data))
   .catch(error => catchback(error))
-export const getFuturePlans = (callback, catchback) => {}
-  // axios.get('/futurePlans')
-  // .then(response => callback(response.data))
-  // .catch(error => catchback(error))
+export const getFuturePlans = (callback, catchback) =>
+  axios.get('/futurePlans')
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
 export const getTests = (callback, catchback) =>
   axios.get('/testinfo')
   .then(response => callback(response.data))
@@ -36,14 +36,14 @@ export const getExtracurricularActivities = (callback, catchback) =>
   axios.get('/activities')
   .then(response => callback(response.data))
   .catch(error => catchback(error))
-export const getHobbies = (callback, catchback) => {}
-  // axios.get('/hobbies')
-  // .then(response => callback(response.data))
-  // .catch(error => catchback(error))
-export const getWriting = (callback, catchback) => {}
-  // axios.get('/writing')
-  // .then(response => callback(response.data))
-  // .catch(error => catchback(error))
+export const getHobbies = (callback, catchback) =>
+  axios.get('/hobbies')
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
+export const getWriting = (callback, catchback) =>
+  axios.get('/writing')
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
 
 export const putPersonalInformation = (data, callback, catchback) =>
   axios.put('/personinfo', data)
@@ -69,10 +69,10 @@ export const putCollege = (data, callback, catchback) =>
   axios.put('/collegeinfo', data)
   .then(response => callback(response.data))
   .catch(error => catchback(error))
-export const putFuturePlans = (data, callback, catchback) => {}
-  // axios.put('/futurePlans', data)
-  // .then(response => callback(response.data))
-  // .catch(error => catchback(error))
+export const putFuturePlans = (data, callback, catchback) =>
+  axios.put('/futurePlans', data)
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
 export const putTests = (data, callback, catchback) =>
   axios.put('/testinfo', data)
   .then(response => callback(response.data))
@@ -81,11 +81,11 @@ export const putExtracurricularActivities = (data, callback, catchback) =>
   axios.put('/activities', data)
   .then(response => callback(response.data))
   .catch(error => catchback(error))
-export const putHobbies = (data, callback, catchback) => {}
-  // axios.put('/hobbies', data)
-  // .then(response => callback(response.data))
-  // .catch(error => catchback(error))
-export const putWriting = (data, callback, catchback) => {}
-  // axios.put('/writing', data)
-  // .then(response => callback(response.data))
-  // .catch(error => catchback(error))
+export const putHobbies = (data, callback, catchback) =>
+  axios.put('/hobbies', data)
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))
+export const putWriting = (data, callback, catchback) =>
+  axios.put('/writing', data)
+  .then(response => callback(response.data))
+  .catch(error => catchback(error))

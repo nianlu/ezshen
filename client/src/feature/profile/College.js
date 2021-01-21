@@ -12,12 +12,12 @@ function College(props) {
         {college.map((d, i) =>
           <div className="row" key={'college'+i}>
             <div className="input-field col s6">
-              <input value={d.year_of_entry || ''} onChange={e => onUpdate({type: 'update', id: i, data: {year_of_entry: e.target.value}})} id={"year_of_entry"+i} type="text" />
+              <input value={d.year_of_entry || ''} onChange={e => onUpdate({type: 'update', id: i, data: {year_of_entry: parseInt(e.target.value)}})} id={"year_of_entry"+i} type="text" />
               <label className={d.year_of_entry? 'active' : ''} htmlFor={"year_of_entry"+i}>入学年份 Year of entry</label>
             </div>
             <div className="input-field col s6">
-              <input value={d.year_of_graduation || ''} onChange={e => onUpdate({type: 'update', id: i, data: {year_of_graduation: e.target.value}})} id={"year_of_graduation"+i} type="text" />
-              <label className={d.year_of_graduation? 'active' : ''} htmlFor={"year_of_graduation"+i}>毕业年份 Year of graduation</label>
+              <input value={d.year_of_leave || ''} onChange={e => onUpdate({type: 'update', id: i, data: {year_of_leave: parseInt(e.target.value)}})} id={"year_of_leave"+i} type="text" />
+              <label className={d.year_of_leave? 'active' : ''} htmlFor={"year_of_leave"+i}>毕业年份 Year of graduation</label>
             </div>
             <div className="input-field col s6">
               <input value={d.school_name || ''} onChange={e => onUpdate({type: 'update', id: i, data: {school_name: e.target.value}})} id={"school_name"+i} type="text" />
@@ -36,8 +36,8 @@ function College(props) {
               <label className={d.gpa? 'active' : ''} htmlFor={"gpa"+i}>大学总平均成绩 GPA</label>
             </div>
             <div className="input-field col s6">
-              <input value={d.honors_and_rewards || ''} onChange={e => onUpdate({type: 'update', id: i, data: {honors_and_rewards: e.target.value}})} id={"honors_and_rewards"+i} type="text" />
-              <label className={d.honors_and_rewards? 'active' : ''} htmlFor={"honors_and_rewards"+i}>荣誉和奖励 Honors and rewards</label>
+              <input value={d.honor_awards || ''} onChange={e => onUpdate({type: 'update', id: i, data: {honor_awards: e.target.value}})} id={"honor_awards"+i} type="text" />
+              <label className={d.honor_awards? 'active' : ''} htmlFor={"honor_awards"+i}>荣誉和奖励 Honors and rewards</label>
             </div>
             {college.length > 1 &&
               <span class="btn-floating waves-effect waves-light" onClick={e => onUpdate({type: 'remove', id: i})}><i class="material-icons">-</i></span>

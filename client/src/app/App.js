@@ -70,7 +70,8 @@ function App(props) {
           </ul> */}
         </div>
       </nav>
-      <div className="container">
+      {/* <div className="container"> */}
+      <div>
         <Switch>
           <Route exact path="/">
             <Home />

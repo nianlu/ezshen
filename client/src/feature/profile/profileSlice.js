@@ -19,7 +19,7 @@ const initial = {
   futurePlans: {},
   tests: [{}],
   extracurricularActivities: [{record_id: 1}],
-  hobbies: {},
+  hobbies: [{record_id: 1}],
   writing: {},
 }
 
@@ -40,19 +40,19 @@ const profileSlice = createSlice({
       if (action.payload.type === 'family')
         state.family = action.payload.data
       if (action.payload.type === 'highSchool1')
-        state.highSchool1 = action.payload.data
+        state.highSchool1 = action.payload.data && action.payload.data.length > 0? action.payload.data : [{record_id: 1}]
       if (action.payload.type === 'highSchool2')
         state.highSchool2 = action.payload.data
       if (action.payload.type === 'college')
-        state.college = action.payload.data
+        state.college = action.payload.data && action.payload.data.length > 0? action.payload.data : [{record_id: 1}]
       if (action.payload.type === 'futurePlans')
         state.futurePlans = action.payload.data
       if (action.payload.type === 'tests')
         state.tests = action.payload.data
       if (action.payload.type === 'extracurricularActivities')
-        state.extracurricularActivities = action.payload.data
+        state.extracurricularActivities = action.payload.data && action.payload.data.length > 0? action.payload.data : [{record_id: 1}]
       if (action.payload.type === 'hobbies')
-        state.hobbies = action.payload.data
+        state.hobbies = action.payload.data && action.payload.data.length > 0? action.payload.data : [{record_id: 1}]
       if (action.payload.type === 'writing')
         state.writing = action.payload.data
       state.updating = false
@@ -145,7 +145,21 @@ const profileSlice = createSlice({
           : state.extracurricularActivities
         ).reduce((a, c) => [...a, {...c, record_id: a.length+1}], [])
       else if (action.payload.type === 'hobbies')
-        state.hobbies = {...state.hobbies, ...action.payload.data}
+        // state.hobbies = {...state.hobbies, ...action.payload.data}
+        state.hobbies = (
+          action.payload.data.type === 'add'?
+            [...state.hobbies, {}]
+          : action.payload.data.type === 'remove'?
+            [...state.hobbies.slice(0, action.payload.data.id),
+              ...state.hobbies.slice(action.payload.data.id+1)
+            ]
+          : action.payload.data.type === 'update'?
+            [...state.hobbies.slice(0, action.payload.data.id),
+              {...state.hobbies[action.payload.data.id], ...action.payload.data.data},
+              ...state.hobbies.slice(action.payload.data.id+1)
+            ]
+          : state.hobbies
+        ).reduce((a, c) => [...a, {...c, record_id: a.length+1}], [])
       else if (action.payload.type === 'writing')
         state.writing = {...state.writing, ...action.payload.data}
     },
