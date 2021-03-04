@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import SideMenu from '../component/SideMenu'
 import Info from './Info'
 
 import { login, register, forgot, resetPassword } from './accountSlice'
@@ -13,33 +14,18 @@ function Account(props) {
   const { resetPassword, account } = props
 
   return (
-    <div>
-    <div>
-      {/* <div className="row" style={{marginTop: '1rem', backgroundColor: '#555555'}}> */}
-      <div className="row">
-        <div className='col s3'>
-          <div className='collection' style={{cursor: 'pointer'}}>
-            <Link to='/profile' onClick={_ => fetchPersonalInformation()}>
-              <a className='collection-item' onClick={_ => {}}>个人信息</a>
-            </Link>
-            <Link to='/admission'>
-              <a className='collection-item' onClick={_ => {}}>我的申请</a>
-            </Link>
-            <Link to='/account'>
-              <a className='collection-item' onClick={_ => {}}>我的收藏</a>
-            </Link>
-            <Link to='/account'>
-              <a className='collection-item' onClick={_ => {}}>账户管理</a>
-            </Link>
-            <a className='collection-item' onClick={_ => {}} style={{marginLeft: 50}}>更改密码</a>
-            <a className='collection-item' onClick={_ => {}} style={{marginLeft: 50}}>绑定方式</a>
-          </div>
-        </div>
-        <div className='col s9' style={{padding: '1rem'}}>
-          <Info onSubmit={resetPassword} email={account.email} message={account.message} />
-        </div>
+    <div className='columns'>
+      <div className='column is-2' style={{margin: '0.75rem', minWidth: '14rem'}}>
+        <SideMenu active='account'>
+          <ul style={{margin: '0.5rem 0.75rem'}}>
+            <li><a onClick={_ => {}}>更改密码</a></li>
+            <li><a onClick={_ => {}}>绑定方式</a></li>
+          </ul>
+        </SideMenu>
       </div>
-    </div>
+      <div className='column is-10'>
+        <Info onSubmit={resetPassword} email={account.email} message={account.message} />
+      </div>
     </div>
   )
 }

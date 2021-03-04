@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
 
 // eslint-disable-next-line no-unused-vars
-import M from 'materialize-css' //needed for animation
-import 'materialize-css/dist/css/materialize.min.css'
+// import 'materialize-css/dist/css/materialize.min.css'
 // import './App.css'
 
 import Home from 'feature/home/Home'
@@ -18,58 +17,42 @@ import Login from 'feature/account/Login';
 import Register from 'feature/account/Register';
 import Forgot from 'feature/account/Forgot';
 
-import { fetchPersonalInformation } from '../feature/profile/profileSlice';
+const mapDispatch = { logout }
 
-const mapDispatch = { logout, fetchPersonalInformation }
-
-function App(props) {
-  const { login, logout, fetchPersonalInformation } = props
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    // var instances = M.FormSelect.init(elems, options);
-    var instances = M.FormSelect.init(elems);
-  });
+const App = props => {
+  const { login, logout } = props
 
   return (
+
     <Router>
-      <nav className=" teal lighten-3">
-        <div className="nav-wrapper container">
-          <div className="brand-logo">
-            <Link to="/">易申</Link>
+
+      <nav className="navbar is-tale" role="navigation" aria-label="main navigation" style={{backgroundColor: '#80cbc4'}}>
+        <div className="navbar-brand">
+          <Link to="/" className='navbar-item'>易申</Link>
+        </div>
+
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            <Link to="/schools" className='navbar-item'>查找学校</Link>
+            <Link to="/schools" className='navbar-item'>特色项目</Link>
+            <Link to="/schools" className='navbar-item'>留学头条</Link>
+            <Link to="/schools" className='navbar-item'>关于易申</Link>
+            <Link to="/schools" className='navbar-item'>开始申请</Link>
           </div>
-          {/* <ul id="nav-mobile" className="right hide-on-med-and-down"> */}
-          <ul id="nav-mobile" className="right">
-            <li><Link to="/schools">查找学校</Link></li>
-            <li><Link to="/schools">特色项目</Link></li>
-            <li><Link to="/schools">留学头条</Link></li>
-            <li><Link to="/schools">关于易申</Link></li>
-            <li><Link to="/schools">开始申请</Link></li>
-            {login?
-              <>
-              {/* <li><Link to="/profile" onClick={_ => fetchPersonalInformation()}>我的申请</Link></li> */}
-              <li><Link to="/admission">我的申请</Link></li>
-              <li><Link to="/account">账户管理</Link></li>
-              <li><a onClick={_ => logout()}>登出</a></li>
-              </>
-              :
-              <>
-              <li><Link to="/login">登录/注册</Link></li>
-              {/* <li><Link to="/register">注册</Link></li> */}
-              </>
-            }
-          </ul>
-          {/* <a href="#" className="brand-logo" style={{paddingLeft: '1rem'}} onClick={() => props.onActive('home')}>易申</a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li className={props.active === 'schools' && 'active'}><a href="#" onClick={() => props.onActive('schools')}>查询</a></li>
-            <li><a href="#">计划</a></li>
-            <li><a href="#">申请</a></li>
-            <li className={props.active === 'profile' && 'active'}><a href="#" onClick={() => props.onActive('profile')}>个人信息</a></li>
-            <li className={props.active === 'login' && 'active'}><a onClick={() => props.onActive('login')}>登录</a></li>
-            <li className={props.active === 'register' && 'active'}><a onClick={() => props.onActive('register')}>注册</a></li>
-          </ul> */}
+          <div className="navbar-end">
+              {login?
+                <>
+                <Link className='navbar-item' to="/admission">我的申请</Link>
+                <Link className='navbar-item' to="/account">账户管理</Link>
+                <a className='navbar-item' onClick={_ => logout()}>登出</a>
+                </>
+                :
+                <Link className='navbar-item' to="/login">登录/注册</Link>
+              }
+          </div>
         </div>
       </nav>
+
       {/* <div className="container"> */}
       <div>
         <Switch>

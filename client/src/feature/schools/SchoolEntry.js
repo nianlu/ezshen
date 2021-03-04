@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // import Gallery from 'react-photo-gallery'
-import Lightbox from 'react-lightbox-component';
+// import Lightbox from 'react-lightbox-component';
 
 import pic1 from '../pic/villanova.jpg'
 
@@ -57,7 +57,7 @@ function SchoolEntry(props) {
             </div>
           </div>
           <div className="row" style={{marginTop: '2rem', backgroundColor: 'lightblue'}}>
-            <Lightbox images={
+            {/* <Lightbox images={
               [
                 {
                   src: 'http://localhost:3000/college.jpg',
@@ -66,7 +66,7 @@ function SchoolEntry(props) {
                   // description: 'image description'
                 }
               ]
-            }/>
+            }/> */}
             {/* <div className="col s4" style={{backgroundColor: 'lightgreen', height: '15rem', padding: '0'}}>
               <img src={pic1} style={{height: '100%'}} />
             </div>

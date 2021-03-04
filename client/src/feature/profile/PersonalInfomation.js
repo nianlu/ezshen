@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 
-import M from 'materialize-css' //needed for animation
+// import { TextField } from '@material-ui/core'
+
+// import M from 'materialize-css' //needed for animation
 
 function PersonalInformation(props) {
 
   const { personalInformation, onUpdate, onSave } = props
   // console.log('pi', personalInformation)
-  useEffect(() => {
-    var elems = document.querySelectorAll('select');
-    // var instances = M.FormSelect.init(elems, options);
-    var instances = M.FormSelect.init(elems);
-  }, [])
+
+  // useEffect(() => {
+  //   var elems = document.querySelectorAll('select');
+  //   // var instances = M.FormSelect.init(elems, options);
+  //   var instances = M.FormSelect.init(elems);
+  // }, [])
 
   return (
     <div className='col s12'>
@@ -19,6 +22,7 @@ function PersonalInformation(props) {
         <h5>个人信息</h5><span>Personal Information</span>
       </div>
       <div className="row">
+        {/* <TextField id='aaa' label='testxx lskdj flasjdf;lkaj sd;lfkja;lsdjkf ;lakjsdf;lkas;dl kfja;lksjdf a;lsdkjflkasdjf kasjd lfkjalskdjf lkasjdfklj askdfj' /> */}
         <div className="input-field col s6" style={{maxWidth: '10rem'}}>
           <input value={personalInformation.first_name || ''} onChange={e => onUpdate({first_name: e.target.value})} id="first_name" type="text" className="validate" />
           <label className={personalInformation.first_name? 'active' : ''} htmlFor="first_name">名 First Name</label>
@@ -61,7 +65,7 @@ function PersonalInformation(props) {
         </div>
       </div>
       <div>
-        <span class="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>
+        <span className="waves-effect waves-light btn" onClick={_ => onSave()} style={{float: 'right'}}>保存</span>
       </div>
     </div>
   );

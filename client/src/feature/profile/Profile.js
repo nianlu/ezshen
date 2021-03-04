@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+import SideMenu from '../component/SideMenu'
 
 import PersonalInformation from './PersonalInfomation';
 import ContactDetails from './ContactDetails';
@@ -59,67 +61,59 @@ function Profile(props) {
     }
   }
 
+  useEffect(() => {
+    setActive(1)
+    fetchProfile(activeMap[1])
+  }, [])
+
   return (
-    <div>
-      {/* <div className="row" style={{marginTop: '1rem', backgroundColor: '#555555'}}> */}
-      <div className="row">
-        <div className='col s2'>
-          <div className='collection' style={{cursor: 'pointer'}}>
-            <Link to='/profile' className='collection-item'>
-              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>我的信息</span>
-            </Link>
-            <a className='collection-item' onClick={_ => handleActive(1)}><span style={{marginLeft: 20}}>基本信息</span></a>
-            <a className='collection-item' onClick={_ => handleActive(2)}><span style={{marginLeft: 20}}>联系方式</span></a>
-            <a className='collection-item' onClick={_ => handleActive(3)}><span style={{marginLeft: 20}}>家庭</span></a>
-            <a className='collection-item' onClick={_ => handleActive(4)}><span style={{marginLeft: 20}}>高中</span>1</a>
-            <a className='collection-item' onClick={_ => handleActive(5)}><span style={{marginLeft: 20}}>高中</span>2</a>
-            <a className='collection-item' onClick={_ => handleActive(6)}><span style={{marginLeft: 20}}>大学</span></a>
-            <a className='collection-item' onClick={_ => handleActive(7)}><span style={{marginLeft: 20}}>未来计划</span></a>
-            <a className='collection-item' onClick={_ => handleActive(8)}><span style={{marginLeft: 20}}>标化考试</span></a>
-            <a className='collection-item' onClick={_ => handleActive(9)}><span style={{marginLeft: 20}}>课外活动</span></a>
-            <a className='collection-item' onClick={_ => handleActive(10)}><span style={{marginLeft: 20}}>兴趣爱好及特长</span></a>
-            <a className='collection-item' onClick={_ => handleActive(11)}><span style={{marginLeft: 20}}>文书</span></a>
-            <Link to='/admission' className='collection-item'>
-              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>我的申请</span>
-            </Link>
-            <Link to='/profile' className='collection-item'>
-              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>我的收藏</span>
-            </Link>
-            <Link to='/account' className='collection-item'>
-              <span style={{fontWeight: 400, fontSize: '1.2rem'}}>账户管理</span>
-            </Link>
-          </div>
-        </div>
-        <div className='col s10' style={{padding: '1rem'}}>
-          {active === 1?
-            <PersonalInformation onUpdate={v => handleUpdate(1, v)} onSave={_ => handleSave(1)} />
-          : active === 2?
-            <ContactDetails onUpdate={v => handleUpdate(2, v)} onSave={_ => handleSave(2)} />
-          : active === 3?
-            <Family onUpdate={v => handleUpdate(3, v)} onSave={_ => handleSave(3)} />
-          : active === 4?
-            <HighSchool1 onUpdate={v => handleUpdate(4, v)} onSave={_ => handleSave(4)} />
-          : active === 5?
-            <HighSchool2 onUpdate={v => handleUpdate(5, v)} onSave={_ => handleSave(5)} />
-          : active === 6?
-            <College onUpdate={v => handleUpdate(6, v)} onSave={_ => handleSave(6)} />
-          : active === 7?
-            <FuturePlans onUpdate={v => handleUpdate(7, v)} onSave={_ => handleSave(7)} />
-          : active === 8?
-            <Tests onUpdate={v => handleUpdate(8, v)} onSave={_ => handleSave(8)} />
-          : active === 9?
-            <ExtracurricularActivities onUpdate={v => handleUpdate(9, v)} onSave={_ => handleSave(9)} />
-          : active === 10?
-            <Hobbies onUpdate={v => handleUpdate(10, v)} onSave={_ => handleSave(10)} />
-          : active === 11?
-            <Writing onUpdate={v => handleUpdate(11, v)} onSave={_ => handleSave(11)} />
-          :
-            <></>
-          }
-        </div>
+    <div className='columns'>
+      <div className='column is-2' style={{margin: '0.75rem', minWidth: '14rem'}}>
+        <SideMenu active='profile'>
+          <ul style={{margin: '0.5rem 0.75rem'}}>
+            <li><a className={active === 1? 'is-active' : ''} onClick={_ => handleActive(1)}>基本信息</a></li>
+            <li><a className={active === 2? 'is-active' : ''} onClick={_ => handleActive(2)}>联系方式</a></li>
+            <li><a className={active === 3? 'is-active' : ''} onClick={_ => handleActive(3)}>家庭</a></li>
+            <li><a className={active === 4? 'is-active' : ''} onClick={_ => handleActive(4)}>高中1</a></li>
+            <li><a className={active === 5? 'is-active' : ''} onClick={_ => handleActive(5)}>高中2</a></li>
+            <li><a className={active === 6? 'is-active' : ''} onClick={_ => handleActive(6)}>大学</a></li>
+            <li><a className={active === 7? 'is-active' : ''} onClick={_ => handleActive(7)}>未来计划</a></li>
+            <li><a className={active === 8? 'is-active' : ''} onClick={_ => handleActive(8)}>标化考试</a></li>
+            <li><a className={active === 9? 'is-active' : ''} onClick={_ => handleActive(9)}>课外活动</a></li>
+            <li><a className={active === 10? 'is-active' : ''} onClick={_ => handleActive(10)}>兴趣爱好及特长</a></li>
+            <li><a className={active === 11? 'is-active' : ''} onClick={_ => handleActive(11)}>文书</a></li>
+          </ul>
+        </SideMenu>
+      </div>
+      <div className='column is-10' style={{padding: '1rem'}}>
+        {active === 1?
+          <PersonalInformation onUpdate={v => handleUpdate(1, v)} onSave={_ => handleSave(1)} />
+        : active === 2?
+          <ContactDetails onUpdate={v => handleUpdate(2, v)} onSave={_ => handleSave(2)} />
+        : active === 3?
+          <Family onUpdate={v => handleUpdate(3, v)} onSave={_ => handleSave(3)} />
+        : active === 4?
+          <HighSchool1 onUpdate={v => handleUpdate(4, v)} onSave={_ => handleSave(4)} />
+        : active === 5?
+          <HighSchool2 onUpdate={v => handleUpdate(5, v)} onSave={_ => handleSave(5)} />
+        : active === 6?
+          <College onUpdate={v => handleUpdate(6, v)} onSave={_ => handleSave(6)} />
+        : active === 7?
+          <FuturePlans onUpdate={v => handleUpdate(7, v)} onSave={_ => handleSave(7)} />
+        : active === 8?
+          <Tests onUpdate={v => handleUpdate(8, v)} onSave={_ => handleSave(8)} />
+        : active === 9?
+          <ExtracurricularActivities onUpdate={v => handleUpdate(9, v)} onSave={_ => handleSave(9)} />
+        : active === 10?
+          <Hobbies onUpdate={v => handleUpdate(10, v)} onSave={_ => handleSave(10)} />
+        : active === 11?
+          <Writing onUpdate={v => handleUpdate(11, v)} onSave={_ => handleSave(11)} />
+        :
+          <></>
+        }
       </div>
     </div>
-  );
+  )
 }
 
 export default connect(state => ({
