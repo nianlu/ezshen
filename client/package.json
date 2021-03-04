@@ -6,7 +6,7 @@
   "homepage": "http://www.ezshen.com",
   "dependencies": {
     "@reduxjs/toolkit": "^1.0.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "jwt-decode": "^2.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
